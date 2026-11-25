@@ -23,6 +23,7 @@ import {
   formatEnergy,
   formatEnpi,
   formatM3,
+  formatNumber,
   formatPct,
   formatSigned,
   formatTCo2,
@@ -347,14 +348,20 @@ function lastNight(ctx: CopilotContext, t: Tr, c: Tr): Composed {
       }),
     );
   } else paragraphs.push(t('answers.lastNight.clean'));
+  const nightItem = (n: (typeof r.anomalies)[number]) =>
+    t('answers.lastNight.anomalyItem', {
+      equipment: anomalyTitleParams(n.anomaly).equipment,
+      rule: c(`rule.${n.anomaly.rule}`).toLocaleLowerCase(ctx.lang),
+      from: formatTime(n.from),
+      to: formatTime(n.to),
+      hours: formatNumber(n.hours, Number.isInteger(Math.round(n.hours * 10) / 10) ? 0 : 1),
+      azn: formatAzn(n.lossAzn),
+    });
   if (r.anomalies.length) {
     paragraphs.push(
       t('answers.lastNight.anomalies', {
         count: r.anomalies.length,
-        list: r.anomalies
-          .slice(0, 3)
-          .map((a) => c(`anomaly.title.${a.rule}`, anomalyTitleParams(a)))
-          .join('; '),
+        list: r.anomalies.slice(0, 3).map(nightItem).join('; '),
       }),
     );
   }
@@ -381,7 +388,14 @@ function lastNight(ctx: CopilotContext, t: Tr, c: Tr): Composed {
             },
           ]
         : []),
-      { kind: 'page', to: '/anomalies', label: t('ref.openAnomalies') },
+      r.anomalies[0]
+        ? {
+            kind: 'page',
+            to: `/anomalies?id=${encodeURIComponent(r.anomalies[0].anomaly.id)}`,
+            label: t('ref.openAnomaly'),
+            detail: nightItem(r.anomalies[0]),
+          }
+        : { kind: 'page', to: '/anomalies', label: t('ref.openAnomalies') },
     ],
   };
 }
@@ -467,7 +481,19 @@ function anomalies(ctx: CopilotContext, t: Tr, c: Tr): Composed {
   }
   return {
     paragraphs,
-    references: [{ kind: 'page', to: '/anomalies', label: t('ref.openAnomalies') }],
+    references: [
+      ...(latest
+        ? [
+            {
+              kind: 'page' as const,
+              to: `/anomalies?id=${encodeURIComponent(latest.id)}`,
+              label: t('ref.openAnomaly'),
+              detail: c(`anomaly.title.${latest.rule}`, anomalyTitleParams(latest)),
+            },
+          ]
+        : []),
+      { kind: 'page', to: '/anomalies', label: t('ref.openAnomalies') },
+    ],
   };
 }
 

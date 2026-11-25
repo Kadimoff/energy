@@ -7,6 +7,7 @@ import {
   MessageSquareText,
   RotateCcw,
   SearchX,
+  Table2,
   ThumbsDown,
   X,
 } from 'lucide-react';
@@ -319,6 +320,13 @@ export default function AnomaliesPage() {
       ) : view === 'timeline' && lanes && win ? (
         <Card>
           <CardContent className="pt-5">
+            <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+              <p className="text-13 text-ink-2">{t('timeline.tableHint')}</p>
+              <Button variant="ghost" size="sm" onClick={() => set({ view: null })}>
+                <Table2 aria-hidden="true" />
+                {t('common:chart.viewTable')}
+              </Button>
+            </div>
             <AnomalyTimeline
               lanes={lanes}
               from={win.from}

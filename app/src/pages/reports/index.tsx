@@ -67,7 +67,7 @@ export default function ReportsPage() {
         title={t('title')}
         subtitle={t('subtitle')}
         actions={
-          <div className="flex shrink-0 flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 md:justify-end">
             <Button variant="secondary" onClick={exportCsv} disabled={!report}>
               <Download aria-hidden="true" />
               {t('actions.csv')}

@@ -14,6 +14,7 @@ import { useT } from '@/i18n';
 import { useIsDesktop } from '@/lib/useMediaQuery';
 import { cn } from '@/lib/utils';
 import { usePendingCount } from '@/stores/derived';
+import { usePlantProfile } from '@/stores/admin';
 import { useUiStore } from '@/stores/ui';
 import { LogoMark } from './Logo';
 
@@ -25,7 +26,9 @@ export function Sidebar() {
   const plantId = useUiStore((s) => s.plantId);
   const setPlant = useUiStore((s) => s.setPlant);
   const pending = usePendingCount();
-  const plants = [baseConfig.plant];
+  const profile = usePlantProfile();
+  const plantName = profile.name.trim() || baseConfig.plant.name;
+  const plants = [{ id: baseConfig.plant.id, name: plantName }];
   const isDesktop = useIsDesktop();
   const iconOnly = collapsedPref || !isDesktop;
 
@@ -131,7 +134,7 @@ export function Sidebar() {
             <span className="min-w-0 flex-1 max-lg:hidden group-data-[collapsed=true]/sb:hidden">
               <span className="block text-xs text-ink-3">{t('sidebar.plant')}</span>
               <span className="block truncate text-13 font-medium text-ink">
-                {baseConfig.plant.name}
+                {plantName}
               </span>
             </span>
             <ChevronsUpDown

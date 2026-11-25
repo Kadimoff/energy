@@ -25,6 +25,7 @@ import { useT } from '@/i18n';
 import { formatDate, formatDateRange, formatTime } from '@/lib/format';
 import { cn } from '@/lib/utils';
 import { useAnomalies, useDateRange } from '@/stores/derived';
+import { usePlantProfile } from '@/stores/admin';
 import { useUiStore, type RangePreset, type Role } from '@/stores/ui';
 import { LogoMark } from './Logo';
 
@@ -280,12 +281,13 @@ function SearchButton() {
 export function Topbar({ title }: TopbarProps) {
   const { t } = useT('layout');
   const setCopilotOpen = useUiStore((s) => s.setCopilotOpen);
+  const plantName = usePlantProfile().name.trim() || baseConfig.plant.name;
   return (
     <header className="sticky top-0 z-30 border-b border-border/70 bg-surface/85 backdrop-blur-md">
       <div className="flex h-topbar items-center gap-3 px-4 md:px-6">
         <LogoMark className="size-7 md:hidden" />
         <p className="flex min-w-0 flex-1 items-center gap-2 truncate text-sm" aria-hidden="true">
-          <span className="hidden truncate text-ink-3 xl:inline">{baseConfig.plant.name}</span>
+          <span className="hidden truncate text-ink-3 xl:inline">{plantName}</span>
           <span className="hidden text-border-strong xl:inline">/</span>
           <span className="truncate font-semibold text-ink">{title}</span>
         </p>

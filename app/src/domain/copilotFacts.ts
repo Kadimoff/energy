@@ -94,7 +94,68 @@ export interface NightReport {
   wasteAzn: number;
   productionHours: number;
   top: NightEquipment[];
-  anomalies: AnomalyVM[];
+  /** anomalies with at least one occurrence inside the night window, clipped to it */
+  anomalies: NightAnomaly[];
+}
+
+/** An anomaly seen through the night window only (not its weekly total). */
+export interface NightAnomaly {
+  anomaly: AnomalyVM;
+  /** first and last hour of the occurrences inside the window */
+  from: number;
+  to: number;
+  /** wall-clock hours inside the window covered by the occurrences */
+  hours: number;
+  /** excess energy inside the window, pro rata of the occurrence loss (kWh or m³) */
+  loss: number;
+  lossAzn: number;
+}
+
+/** Clip anomaly occurrences to [from, to): hours, time span and pro-rata loss. */
+export function anomaliesInWindow(
+  anomalies: AnomalyVM[],
+  from: number,
+  to: number,
+  rates: EffectiveRates,
+): NightAnomaly[] {
+  const out: NightAnomaly[] = [];
+  for (const x of anomalies) {
+    let loss = 0;
+    const parts: [number, number][] = [];
+    for (const o of x.occurrences) {
+      const s = Math.max(o.start, from);
+      const e = Math.min(o.end, to);
+      if (e <= s) continue;
+      const len = o.end - o.start;
+      loss += len > 0 ? (o.lossKwh * (e - s)) / len : o.lossKwh;
+      parts.push([s, e]);
+    }
+    // wall-clock hours: union of the clipped intervals (several machines can overlap)
+    parts.sort((p, q) => p[0] - q[0]);
+    let ms = 0;
+    let curS = Number.NaN;
+    let curE = Number.NaN;
+    for (const [s, e] of parts) {
+      if (Number.isNaN(curS) || s > curE) {
+        if (!Number.isNaN(curS)) ms += curE - curS;
+        curS = s;
+        curE = e;
+      } else curE = Math.max(curE, e);
+    }
+    if (!Number.isNaN(curS)) ms += curE - curS;
+    const first = parts.length ? parts[0][0] : 0;
+    const last = parts.reduce((m, p) => Math.max(m, p[1]), 0);
+    if (ms <= 0) continue;
+    out.push({
+      anomaly: x,
+      from: first,
+      to: last,
+      hours: ms / HOUR_MS,
+      loss,
+      lossAzn: x.energy === 'gas' ? energyValue(0, loss, rates) : energyValue(loss, 0, rates),
+    });
+  }
+  return out.sort((a, b) => b.lossAzn - a.lossAzn || b.hours - a.hours);
 }
 
 export function nightWindow(a: Analysis): { from: number; to: number } {
@@ -147,8 +208,11 @@ export function lastNightReport(
       wasteAzn: e.energy === 'gas' ? energyValue(0, w, rates) : energyValue(w, 0, rates),
     };
   });
-  const overlapping = anomalies.filter((x) =>
-    x.occurrences.some((o) => o.start < to && o.end > from),
+  const overlapping = anomaliesInWindow(
+    anomalies.filter((x) => x.status !== 'false_alarm'),
+    from,
+    to,
+    rates,
   );
   return {
     from,

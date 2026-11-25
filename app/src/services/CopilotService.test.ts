@@ -125,6 +125,10 @@ describe('local copilot answers', () => {
     }
     const night = svc.answer('Dünən gecə nə baş verib?', ctx);
     expect(night.references[0].kind).toBe('band');
+    // last night only: no weekly totals such as "56 saat"
+    for (const m of night.paragraphs.join(' ').matchAll(/(\d+(?:,\d+)?) saat/g)) {
+      expect(Number(m[1].replace(',', '.'))).toBeLessThanOrEqual(10);
+    }
     const k2 = svc.answer('K-2', ctx);
     expect(
       k2.references.some((x) => x.kind === 'decision' && x.recId === 'rec-comp-schedule'),

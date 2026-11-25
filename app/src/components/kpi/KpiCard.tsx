@@ -111,7 +111,7 @@ export function KpiCard({
         />
       )}
       {hasDelta && (
-        <p className="mt-2 flex min-w-0 items-center gap-1.5 text-xs text-ink-3">
+        <p className="mt-2 flex min-w-0 flex-wrap items-center gap-x-1.5 gap-y-1 text-xs text-ink-3">
           <span
             className={cn(
               'inline-flex shrink-0 items-center gap-0.5 whitespace-nowrap rounded-[6px] px-1.5 py-0.5 font-semibold tabular-nums',
@@ -125,7 +125,7 @@ export function KpiCard({
             <DeltaIcon className="size-3.5" strokeWidth={2} aria-hidden="true" />
             {flat ? t('kpi.noChange') : `${up ? '+' : MINUS}${formatPct(Math.abs(deltaPct), 1)}`}
           </span>
-          <span className="truncate">{deltaLabel ?? t('kpi.vsPrevious')}</span>
+          <span className="min-w-0 break-words">{deltaLabel ?? t('kpi.vsPrevious')}</span>
         </p>
       )}
       {footer && (

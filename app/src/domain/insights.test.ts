@@ -25,6 +25,7 @@ import {
   dailyWaste,
   equipmentWasteRanking,
   lastNightReport,
+  anomaliesInWindow,
   nightWindow,
   recommendationsFor,
 } from './copilotFacts';
@@ -139,6 +140,27 @@ describe('copilot facts', () => {
     expect(r.points.length).toBe(10);
     expect(r.wasteAzn).toBeGreaterThan(0);
     expect(r.top[0].wasteAzn).toBeGreaterThanOrEqual(r.top[r.top.length - 1].wasteAzn);
+    // anomalies are clipped to the night: never the weekly totals
+    for (const n of r.anomalies) {
+      expect(n.hours).toBeGreaterThan(0);
+      expect(n.hours).toBeLessThanOrEqual(10);
+      expect(n.from).toBeGreaterThanOrEqual(w.from);
+      expect(n.to).toBeLessThanOrEqual(w.to);
+      expect(n.loss).toBeLessThanOrEqual(n.anomaly.lossKwh + n.anomaly.lossM3 + 1e-6);
+    }
+  });
+
+  it('anomaliesInWindow pro-rates an occurrence that crosses the window edge', () => {
+    const x = anomalies[0];
+    const H = 3_600_000;
+    const occ = { start: 0, end: 4 * H, lossKwh: 40 };
+    const one = { ...x, energy: 'electricity' as const, occurrences: [occ] };
+    const [n] = anomaliesInWindow([one], 2 * H, 10 * H, rates);
+    expect(n.hours).toBe(2);
+    expect(n.loss).toBeCloseTo(20);
+    expect(n.from).toBe(2 * H);
+    expect(n.to).toBe(4 * H);
+    expect(anomaliesInWindow([one], 5 * H, 6 * H, rates)).toHaveLength(0);
   });
 
   it('co2 plan compares the rolling year with the target', () => {

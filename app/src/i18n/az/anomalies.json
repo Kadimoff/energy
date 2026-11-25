@@ -43,6 +43,7 @@
     "itemAria": "{title}. {severity}, {status}, {period}. Detalı aç",
     "legend": "Ciddilik izahı",
     "today": "Bu gün",
+    "tableHint": "Hər xətt bir anomaliyadır. Eyni siyahı sıralana bilən cədvəldə də var.",
     "hint": "Nazik xətt anomaliyanın dövrünü, qalın hissələr ayrı hadisələri göstərir. Detal üçün xəttə klikləyin."
   },
   "detail": {

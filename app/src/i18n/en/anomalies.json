@@ -43,6 +43,7 @@
     "itemAria": "{title}. {severity}, {status}, {period}. Open detail",
     "legend": "Severity legend",
     "today": "Today",
+    "tableHint": "Each line is one anomaly. The same list is available as a sortable table.",
     "hint": "The thin line spans the anomaly, thick parts are single events. Click a line for details."
   },
   "detail": {

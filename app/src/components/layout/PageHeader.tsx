@@ -20,12 +20,16 @@ export function PageHeader({ title, subtitle, actions, meta, className }: PageHe
         className,
       )}
     >
-      <div className="min-w-0">
+      <div className="min-w-0 md:flex-1">
         <h1 className="text-2xl font-semibold tracking-[-0.01em] text-ink lg:text-3xl">{title}</h1>
         {subtitle && <p className="mt-1 max-w-2xl text-sm text-ink-2">{subtitle}</p>}
         {meta && <div className="mt-2 text-xs text-ink-3">{meta}</div>}
       </div>
-      {actions && <div className="flex flex-wrap items-center gap-2">{actions}</div>}
+      {actions && (
+        <div className="flex max-w-full flex-wrap items-center gap-2 md:max-w-[60%] md:shrink-0 md:justify-end">
+          {actions}
+        </div>
+      )}
     </header>
   );
 }

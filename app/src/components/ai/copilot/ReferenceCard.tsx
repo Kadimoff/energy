@@ -106,7 +106,19 @@ export function ReferenceCard({ r }: { r: CopilotReference }) {
         </div>
       );
     case 'page':
-      return (
+      return r.detail ? (
+        <Link
+          to={r.to}
+          onClick={() => close(false)}
+          className="group flex items-center gap-3 rounded-md border border-border bg-surface p-3 transition-colors duration-180 hover:border-violet-200 hover:bg-violet-50/50"
+        >
+          <span className="min-w-0 flex-1 text-xs text-ink-2">{r.detail}</span>
+          <span className="inline-flex shrink-0 items-center gap-1 text-xs font-medium text-violet-700">
+            {r.label}
+            <ArrowRight className="size-3.5" strokeWidth={1.75} aria-hidden="true" />
+          </span>
+        </Link>
+      ) : (
         <Link
           to={r.to}
           onClick={() => close(false)}

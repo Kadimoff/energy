@@ -37,6 +37,7 @@
     "openForecast": "Proqnoz və ssenarilərə keç",
     "openCarbon": "Karbon səhifəsinə keç",
     "openAnomalies": "Anomaliyalara keç",
+    "openAnomaly": "Anomaliyanı aç",
     "openDecisions": "AI Qərar Mərkəzinə keç",
     "openMv": "Qənaət və yoxlamaya keç"
   },
@@ -72,7 +73,8 @@
       "main": "{from} ilə {to} arasında zavod {actual} sərf edib. Optimal zolağın yuxarı həddi {upper} idi.",
       "waste": "Zolaqdan artıq sərfiyyatın dəyəri {azn}. Ən böyük paylar: {list}.",
       "clean": "Gecə sərfiyyatı optimal zolaq daxilində qalıb.",
-      "anomalies": "Bu müddətdə {count} anomaliya qeydə alınıb: {list}.",
+      "anomalies": "Gecə pəncərəsinə {count} anomaliya düşür: {list}.",
+      "anomalyItem": "{equipment}: {rule}, {from} ilə {to} arası, {hours} saat, {azn}",
       "chart": "Gecə saatlıq sərfiyyat və optimal zolaq"
     },
     "equipment": {

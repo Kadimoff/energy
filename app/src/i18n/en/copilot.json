@@ -37,6 +37,7 @@
     "openForecast": "Go to forecast and scenarios",
     "openCarbon": "Go to carbon",
     "openAnomalies": "Go to anomalies",
+    "openAnomaly": "Open the anomaly",
     "openDecisions": "Go to the AI Decision Center",
     "openMv": "Go to savings and verification"
   },
@@ -72,7 +73,8 @@
       "main": "Between {from} and {to} the plant used {actual}. The upper edge of the optimal band was {upper}.",
       "waste": "Consumption above the band is worth {azn}. Largest shares: {list}.",
       "clean": "Night consumption stayed within the optimal band.",
-      "anomalies": "{count} anomalies were recorded in this period: {list}.",
+      "anomalies": "{count} anomalies fall into the night window: {list}.",
+      "anomalyItem": "{equipment}: {rule}, {from} to {to}, {hours} h, {azn}",
       "chart": "Hourly night consumption and optimal band"
     },
     "equipment": {

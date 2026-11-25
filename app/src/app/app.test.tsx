@@ -9,6 +9,9 @@ import { useUiStore } from '@/stores/ui';
 import { useScenarioStore } from '@/stores/scenarios';
 import { useAnomalyStore } from '@/stores/anomalies';
 import { safeStorage } from '@/stores/storage';
+import { useAdminStore } from '@/stores/admin';
+import { MemoryRouter } from 'react-router-dom';
+import { Sidebar } from '@/components/layout/Sidebar';
 
 describe('app shell', () => {
   it('renders navigation, page title, footer, palette (Ctrl+K) and copilot (Ctrl+J)', async () => {
@@ -34,6 +37,19 @@ describe('app shell', () => {
     await userEvent.keyboard('{Control>}j{/Control}');
     expect(await screen.findByText('Zavod məlumatı əsasında cavab verir', {}, { timeout: 15000 })).toBeInTheDocument();
   }, 60000);
+
+  it('sidebar shows the plant name set in Settings', () => {
+    useAdminStore.getState().setPlant({ name: 'Test Plast MMC' });
+    render(
+      <Providers>
+        <MemoryRouter>
+          <Sidebar />
+        </MemoryRouter>
+      </Providers>,
+    );
+    expect(screen.getByText('Test Plast MMC')).toBeInTheDocument();
+    useAdminStore.getState().setPlant({ name: 'Nümunə Polimer Zavodu' });
+  });
 
   it('has a route for every page', () => {
     const paths = routes[0].children!.map((r) => (r.index ? '/' : r.path));

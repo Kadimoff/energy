@@ -71,7 +71,7 @@
   },
   "kpi": {
     "vsPrevious": "əvvəlki dövrə görə",
-    "noChange": "dəyişiklik yoxdur",
+    "noChange": "dəyişməyib",
     "trendUp": "artım",
     "trendDown": "azalma"
   },
