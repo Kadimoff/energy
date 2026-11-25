@@ -1,4 +1,86 @@
 {
-  "title": "Canlı monitorinq",
-  "subtitle": "Avadanlıqların cari gücü və hadisələr"
+  "title": "Live monitoring",
+  "subtitle": "Current power, state and events of the equipment. Data refreshes every 5 seconds.",
+  "updated": "Last update {time}",
+  "liveNow": "Live",
+  "kpi": {
+    "power": "Current electric power",
+    "powerHint": "Peak limit {limit}, headroom {pct}",
+    "powerOver": "Peak limit {limit} exceeded",
+    "excess": "Power above optimal",
+    "excessHint": "{count} machines in waste mode",
+    "excessNone": "All machines are within the optimal band",
+    "optimal": "Optimal for this hour: {value}",
+    "gas": "Gas use",
+    "gasHint": "Boiler house, current hour"
+  },
+  "shift": {
+    "title": "Shift indicator",
+    "current": "Shift {no}",
+    "actual": "Actual",
+    "planToNow": "Plan so far",
+    "shiftPlan": "Shift plan",
+    "ahead": "{pct} ahead of plan",
+    "behind": "{pct} behind plan",
+    "onPlan": "On plan",
+    "progress": "{pct} of the shift elapsed",
+    "progressAria": "Shift progress",
+    "none": "No shift running",
+    "next": "Next shift starts {time}",
+    "noneNext": "No shift planned",
+    "tons": "Output, tonnes"
+  },
+  "schematic": {
+    "title": "Plant schematic",
+    "description": "Workshops and main equipment. Click a block to open the equipment detail.",
+    "aria": "Plant schematic. {total} machines: {normal} normal, {waste} waste, {stopped} stopped, {offline} no connection.",
+    "nodeAria": "{name}: {value}, {status}. Open detail",
+    "legend": "Status legend",
+    "gasUnit": "m³/h"
+  },
+  "status": {
+    "normal": "Normal",
+    "waste": "Waste",
+    "stopped": "Stopped",
+    "offline": "No connection"
+  },
+  "table": {
+    "caption": "Current equipment state by workshop",
+    "workshop": "Workshop",
+    "equipment": "Equipment",
+    "power": "Current power",
+    "optimal": "Optimal band",
+    "status": "State",
+    "lastSeen": "Last signal"
+  },
+  "chart": {
+    "title": "Last 60 minutes, total electric power",
+    "aria": "Total electric power over the last 60 minutes. Current {current}, maximum {max}, peak limit {limit}.",
+    "power": "Total power",
+    "limit": "Peak limit",
+    "max": "Maximum {value} at {time}",
+    "avg": "Average {value}",
+    "caption": "Total electric power over the last 60 minutes, per minute"
+  },
+  "feed": {
+    "title": "Live event feed",
+    "description": "Changes in the last 60 minutes and today's AI detections",
+    "listLabel": "Events, newest first",
+    "empty": "No events in the last 60 minutes",
+    "emptyBody": "Events appear here when an equipment state changes.",
+    "start": "{name} started",
+    "stop": "{name} stopped",
+    "offline": "Connection to the {name} meter lost",
+    "online": "Connection to the {name} meter restored",
+    "waste_start": "{name} runs {kw} above the optimal band",
+    "waste_end": "{name} is back within the optimal band",
+    "load_up": "{name} load up {pct}",
+    "load_down": "{name} load down {pct}",
+    "peak_near": "Total power {kw}, approaching the peak limit",
+    "anomaly": "{rule}: {subject}",
+    "groupSubject": "{group}, {count} machines",
+    "plantSubject": "whole plant",
+    "openAnomaly": "Open anomaly"
+  },
+  "loadingLive": "Connecting to the live stream"
 }

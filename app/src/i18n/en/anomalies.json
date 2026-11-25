@@ -1,4 +1,104 @@
 {
-  "title": "Anomaliyalar",
-  "subtitle": "Normadan kənar sərfiyyat hadisələri və səbəbləri"
+  "title": "Anomalies",
+  "subtitle": "Out-of-norm consumption events of the last 30 days, causes and losses",
+  "views": {
+    "label": "View",
+    "table": "Table",
+    "timeline": "Timeline"
+  },
+  "summary": {
+    "count": "{count} anomalies",
+    "loss": "Loss in the current filter",
+    "lossNote": "False alarms are excluded from the loss",
+    "feedback": "{count} false alarm reports sent to the AI model"
+  },
+  "filters": {
+    "label": "Anomaly filters",
+    "severity": "Severity",
+    "type": "Type",
+    "allTypes": "All types",
+    "equipment": "Equipment",
+    "allEquipment": "All equipment",
+    "status": "Status",
+    "reset": "Reset filters"
+  },
+  "col": {
+    "severity": "Severity",
+    "anomaly": "Anomaly",
+    "type": "Type",
+    "equipment": "Equipment",
+    "period": "Period",
+    "loss": "Loss",
+    "status": "Status"
+  },
+  "sortBy": "Sort by {column}",
+  "occurrences": "{count} events, {hours} in total",
+  "empty": "No anomalies match the filters",
+  "emptyBody": "Widen or reset the filters.",
+  "tableCaption": "Anomalies of the last 30 days",
+  "openDetail": "Open detail",
+  "plant": "Whole plant",
+  "timeline": {
+    "aria": "Anomaly timeline, last 30 days, {count} anomalies. Each line is one anomaly.",
+    "itemAria": "{title}. {severity}, {status}, {period}. Open detail",
+    "legend": "Severity legend",
+    "today": "Today",
+    "hint": "The thin line spans the anomaly, thick parts are single events. Click a line for details."
+  },
+  "detail": {
+    "period": "Period",
+    "equipment": "Equipment",
+    "type": "Type",
+    "severity": "Severity",
+    "chartTitle": "Consumption in that period with the optimal band",
+    "explanation": "AI explanation",
+    "loss": "Loss",
+    "lossEnergy": "Energy",
+    "lossMoney": "Cost",
+    "lossCo2": "Emissions",
+    "relatedRec": "Related recommendation",
+    "noRec": "No recommendation for this anomaly. An engineering check is recommended.",
+    "openDecisions": "Open in Decision Center",
+    "status": "Status",
+    "markFalse": "False alarm",
+    "markFalseLong": "Mark as false alarm",
+    "falseNote": "Feedback sent to the AI model. Thresholds of this rule will be re-evaluated for similar cases.",
+    "falseHint": "Marking a false alarm sends feedback to the AI model and refines future detections.",
+    "undoFalse": "Reopen",
+    "assignee": "Assignee",
+    "unassigned": "Unassigned",
+    "comments": "Comments",
+    "commentsEmpty": "No comments yet. Record the result of the check here.",
+    "commentLabel": "Comment",
+    "commentPlaceholder": "For example: valve checked in the compressor room",
+    "addComment": "Add comment",
+    "openEquipment": "Equipment page",
+    "whyData": "Hourly meter data, production schedule and outdoor temperature, last 30 days",
+    "whyCompare": "In the event hours actual {actual}, optimal {expected}",
+    "whyCompareEnpi": "Actual EnPI {actual}, expected {expected}",
+    "notFound": "This anomaly is no longer in the list",
+    "notFoundBody": "The detection window is 30 days. Older anomalies leave the list."
+  },
+  "rule": {
+    "idle_load": "In a non-production hour the load exceeds the upper edge of the optimal band for at least {minHours} consecutive hours.",
+    "baseload_trend": "Night baseload between {from}:00 and {to}:00 rises by {pct} or more over a {days} day trend.",
+    "spike": "In a production hour the load rises above the model by more than z = {z}.",
+    "peak_power": "{count} or more machines start in the same hour with a high inrush.",
+    "weather_mismatch": "On a day with mean temperature below {temp} cooling runs above {load} of rated power.",
+    "enpi_degradation": "Weekly kWh per tonne is {pct} or more above the normalised model value."
+  },
+  "explain": {
+    "idle_load": "{equipment} ran {occurrences} times in non-production hours, {hours} in total. Average load {avgKw} ({loadPct} of rated) while the optimal model expected {expectedKw}. Estimated loss: {loss}.",
+    "baseload_trend": "{equipment} night baseload has been rising for {days} days: from {refKw} to {currentKw} ({pct}). About {slope} more per day is a typical sign of a compressed air leak or wear. Estimated loss: {loss}.",
+    "spike": "{equipment} rose to {peakKw} around {time} while the optimal model expected {expectedKw}. Deviation z = {z}. Estimated loss: {loss}.",
+    "peak_power": "On average {count} machines were started at the same time around {hour}. Total plant power reached {peakKw}, peak limit {limitKw}, typical production hour {typicalKw}. Estimated loss: {loss}.",
+    "weather_mismatch": "On a cold day with mean temperature {temp}, {equipment} ran {hours} at {loadPct} of rated power. For this weather the optimal model expected {expectedKw}. Estimated loss: {loss}.",
+    "enpi_degradation": "Weekly EnPI was {enpi}, expected {expected} after normalising for production and weather. Deviation {pct}. Consumption above optimal: {loss}."
+  },
+  "people": {
+    "p1": "Aysel Məmmədova, energy manager",
+    "p2": "Rəşad Quliyev, chief engineer",
+    "p3": "Leyla Həsənova, shift supervisor",
+    "p4": "Elvin Əliyev, maintenance"
+  }
 }

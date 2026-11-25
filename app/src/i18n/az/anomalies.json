@@ -1,4 +1,104 @@
 {
   "title": "Anomaliyalar",
-  "subtitle": "Normadan kənar sərfiyyat hadisələri və səbəbləri"
+  "subtitle": "Son 30 günün normadan kənar sərfiyyat hadisələri, səbəbləri və itkisi",
+  "views": {
+    "label": "Görünüş",
+    "table": "Cədvəl",
+    "timeline": "Zaman xətti"
+  },
+  "summary": {
+    "count": "{count} anomaliya",
+    "loss": "Filtrə uyğun itki",
+    "lossNote": "Yanlış xəbərdarlıqlar itkiyə daxil edilmir",
+    "feedback": "{count} yanlış xəbərdarlıq rəyi AI modelinə göndərilib"
+  },
+  "filters": {
+    "label": "Anomaliya filtrləri",
+    "severity": "Ciddilik",
+    "type": "Növ",
+    "allTypes": "Bütün növlər",
+    "equipment": "Avadanlıq",
+    "allEquipment": "Bütün avadanlıqlar",
+    "status": "Status",
+    "reset": "Filtrləri sıfırla"
+  },
+  "col": {
+    "severity": "Ciddilik",
+    "anomaly": "Anomaliya",
+    "type": "Növ",
+    "equipment": "Avadanlıq",
+    "period": "Dövr",
+    "loss": "İtki",
+    "status": "Status"
+  },
+  "sortBy": "{column} üzrə sırala",
+  "occurrences": "{count} hadisə, cəmi {hours}",
+  "empty": "Filtrə uyğun anomaliya yoxdur",
+  "emptyBody": "Filtrləri genişləndirin və ya sıfırlayın.",
+  "tableCaption": "Son 30 günün anomaliyaları",
+  "openDetail": "Detalı aç",
+  "plant": "Bütün zavod",
+  "timeline": {
+    "aria": "Anomaliyaların zaman xətti, son 30 gün, {count} anomaliya. Hər xətt bir anomaliyadır.",
+    "itemAria": "{title}. {severity}, {status}, {period}. Detalı aç",
+    "legend": "Ciddilik izahı",
+    "today": "Bu gün",
+    "hint": "Nazik xətt anomaliyanın dövrünü, qalın hissələr ayrı hadisələri göstərir. Detal üçün xəttə klikləyin."
+  },
+  "detail": {
+    "period": "Dövr",
+    "equipment": "Avadanlıq",
+    "type": "Növ",
+    "severity": "Ciddilik",
+    "chartTitle": "Həmin dövrün sərfiyyatı və optimal zolaq",
+    "explanation": "AI izahı",
+    "loss": "İtki",
+    "lossEnergy": "Enerji",
+    "lossMoney": "Xərc",
+    "lossCo2": "Emissiya",
+    "relatedRec": "Əlaqəli tövsiyə",
+    "noRec": "Bu anomaliya üçün tövsiyə yoxdur. Mühəndis yoxlaması tövsiyə olunur.",
+    "openDecisions": "Qərar Mərkəzində aç",
+    "status": "Status",
+    "markFalse": "Yanlış xəbərdarlıq",
+    "markFalseLong": "Yanlış xəbərdarlıq kimi qeyd et",
+    "falseNote": "Rəy AI modelinə göndərildi. Bu qayda üçün hədlər oxşar hallarda yenidən qiymətləndiriləcək.",
+    "falseHint": "Yanlış xəbərdarlıq qeydi AI modelinə rəy kimi göndərilir və gələcək aşkarlamaları dəqiqləşdirir.",
+    "undoFalse": "Yenidən aç",
+    "assignee": "Məsul şəxs",
+    "unassigned": "Təyin edilməyib",
+    "comments": "Şərhlər",
+    "commentsEmpty": "Hələ şərh yoxdur. Yoxlamanın nəticəsini burada qeyd edin.",
+    "commentLabel": "Şərh",
+    "commentPlaceholder": "Məsələn: kompressor otağında klapan yoxlanıldı",
+    "addComment": "Şərh əlavə et",
+    "openEquipment": "Avadanlıq səhifəsi",
+    "whyData": "Saatlıq sayğac məlumatı, istehsal qrafiki və xarici temperatur, son 30 gün",
+    "whyCompare": "Hadisə saatlarında faktiki {actual}, optimal {expected}",
+    "whyCompareEnpi": "Faktiki EnPI {actual}, gözlənilən {expected}",
+    "notFound": "Bu anomaliya artıq siyahıda yoxdur",
+    "notFoundBody": "Aşkarlama pəncərəsi 30 gündür. Köhnə anomaliyalar siyahıdan çıxır."
+  },
+  "rule": {
+    "idle_load": "İstehsal olmayan saatda yük optimal zolağın yuxarı sərhədini ən azı {minHours} saat ardıcıl aşır.",
+    "baseload_trend": "Gecə {from}:00 ilə {to}:00 arası baza yükü {days} günlük trenddə {pct} və daha çox artır.",
+    "spike": "İstehsal saatında yük modeldən z = {z} həddindən çox yuxarı qalxır.",
+    "peak_power": "Eyni saatda {count} və ya daha çox maşın yüksək başlanğıc yükü ilə işə düşür.",
+    "weather_mismatch": "Orta temperatur {temp} həddindən aşağı olan gündə soyutma nominalın {load} hissəsindən çox yüklə işləyir.",
+    "enpi_degradation": "Həftəlik kVt·saat/ton modelin normallaşdırılmış dəyərindən {pct} və daha çox yüksəkdir."
+  },
+  "explain": {
+    "idle_load": "{equipment} istehsal olmayan saatlarda {occurrences} dəfə, cəmi {hours} işləyib. Orta yük {avgKw} (nominalın {loadPct}), optimal model isə {expectedKw} gözləyirdi. Təxmini itki: {loss}.",
+    "baseload_trend": "{equipment} gecə baza yükü {days} gündür artır: {refKw} səviyyəsindən {currentKw} səviyyəsinə ({pct}). Gündə təxminən {slope} artım sıxılmış hava sızmasının və ya aşınmanın tipik əlamətidir. Təxmini itki: {loss}.",
+    "spike": "{equipment} {time} radələrində {peakKw} yükə qalxıb, optimal model {expectedKw} gözləyirdi. Sapma z = {z}. Təxmini itki: {loss}.",
+    "peak_power": "Orta hesabla {count} maşın {hour} radələrində eyni anda işə salınıb. Zavodun ümumi gücü {peakKw} olub, pik həddi {limitKw}, adi iş saatında {typicalKw}. Təxmini itki: {loss}.",
+    "weather_mismatch": "Orta temperatur {temp} olan soyuq gündə {equipment} {hours} nominalın {loadPct} hissəsi ilə işləyib. Bu havada optimal model {expectedKw} gözləyirdi. Təxmini itki: {loss}.",
+    "enpi_degradation": "Həftəlik EnPI {enpi} olub, istehsal və havaya görə normallaşdırılmış gözlənti {expected}. Sapma {pct}. Optimaldan artıq sərfiyyat: {loss}."
+  },
+  "people": {
+    "p1": "Aysel Məmmədova, enerji meneceri",
+    "p2": "Rəşad Quliyev, baş mühəndis",
+    "p3": "Leyla Həsənova, növbə rəisi",
+    "p4": "Elvin Əliyev, texniki xidmət"
+  }
 }
