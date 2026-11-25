@@ -43,6 +43,11 @@ const ACRONYMS = new Set([
   'RMSE',
   'CDD',
   'HDD',
+  // admin area (reports, settings)
+  'RMSE',
+  'CFO',
+  'ESG',
+  'UTC',
 ]);
 
 describe('i18n resources', () => {

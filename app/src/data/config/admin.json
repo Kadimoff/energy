@@ -1,0 +1,55 @@
+{
+  "alertRules": [
+    { "id": "budget", "enabled": true, "threshold": 70, "channels": { "email": true, "telegram": true, "inApp": true } },
+    { "id": "anomaly", "enabled": true, "threshold": 2, "channels": { "email": true, "telegram": false, "inApp": true } },
+    { "id": "peak", "enabled": true, "threshold": 1280, "channels": { "email": false, "telegram": true, "inApp": true } },
+    { "id": "stale", "enabled": true, "threshold": 10, "channels": { "email": false, "telegram": true, "inApp": true } },
+    { "id": "enpi", "enabled": false, "threshold": 10, "channels": { "email": true, "telegram": false, "inApp": true } }
+  ],
+  "alertContacts": { "email": "enerji@zavod.example", "telegram": "@numune_enerji" },
+  "users": [
+    { "id": "u-1", "name": "Rəşad Əliyev", "email": "direktor@zavod.example", "role": "director", "active": true },
+    { "id": "u-2", "name": "Günay Həsənova", "email": "enerji@zavod.example", "role": "energy_manager", "active": true },
+    { "id": "u-3", "name": "Orxan Quliyev", "email": "operator@zavod.example", "role": "operator", "active": true },
+    { "id": "u-4", "name": "Leyla Məmmədova", "email": "esg@zavod.example", "role": "esg", "active": true },
+    { "id": "u-5", "name": "Tural İsmayılov", "email": "admin@zavod.example", "role": "admin", "active": false }
+  ],
+  "rolePermissions": {
+    "director": ["view", "reports", "approve"],
+    "energy_manager": ["view", "reports", "approve", "settings"],
+    "operator": ["view"],
+    "esg": ["view", "reports"],
+    "admin": ["view", "reports", "approve", "settings", "users"]
+  },
+  "schedules": [
+    {
+      "id": "s-1",
+      "template": "director",
+      "frequency": "monthly",
+      "weekday": 0,
+      "dayOfMonth": 1,
+      "hour": 9,
+      "recipients": ["direktor@zavod.example", "maliyye@zavod.example"],
+      "format": "pdf",
+      "enabled": true
+    },
+    {
+      "id": "s-2",
+      "template": "energy_manager",
+      "frequency": "weekly",
+      "weekday": 0,
+      "dayOfMonth": 1,
+      "hour": 8,
+      "recipients": ["enerji@zavod.example"],
+      "format": "csv",
+      "enabled": true
+    }
+  ],
+  "dataSources": [
+    { "id": "scada", "kind": "scada", "protocol": "OPC UA", "status": "connected" },
+    { "id": "gateway", "kind": "gateway", "protocol": "Modbus TCP", "status": "connected" },
+    { "id": "gasMeter", "kind": "meter", "protocol": "M-Bus", "status": "connected" },
+    { "id": "erp", "kind": "erp", "protocol": "REST", "status": "not_configured" }
+  ],
+  "meterCsvColumns": ["Tarix", "Saat", "Sayğac kodu", "Sərfiyyat", "Vahid"]
+}
