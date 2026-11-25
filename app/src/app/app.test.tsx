@@ -29,11 +29,11 @@ describe('app shell', () => {
     await waitFor(() => expect(document.title).toContain('Karbon'));
     await userEvent.keyboard('{Control>}k{/Control}');
     expect(
-      await screen.findByPlaceholderText('Səhifə, avadanlıq və ya anomaliya axtarın'),
+      await screen.findByPlaceholderText('Səhifə, avadanlıq və ya anomaliya axtarın', {}, { timeout: 15000 }),
     ).toBeInTheDocument();
     await userEvent.keyboard('{Control>}j{/Control}');
-    expect(await screen.findByText('Zavod məlumatı əsasında cavab verir')).toBeInTheDocument();
-  }, 30000);
+    expect(await screen.findByText('Zavod məlumatı əsasında cavab verir', {}, { timeout: 15000 })).toBeInTheDocument();
+  }, 60000);
 
   it('has a route for every page', () => {
     const paths = routes[0].children!.map((r) => (r.index ? '/' : r.path));

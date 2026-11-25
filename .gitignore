@@ -5,3 +5,4 @@ coverage/
 .DS_Store
 deploy/.app_uuid
 deploy/Dockerfile.inline
+shots/integration/
