@@ -1,4 +1,86 @@
 {
   "title": "Canlı monitorinq",
-  "subtitle": "Avadanlıqların cari gücü və hadisələr"
+  "subtitle": "Avadanlıqların cari gücü, vəziyyəti və hadisələr. Məlumat hər 5 saniyədən bir yenilənir.",
+  "updated": "Son yenilənmə {time}",
+  "liveNow": "Canlı",
+  "kpi": {
+    "power": "Cari elektrik gücü",
+    "powerHint": "Pik həddi {limit}, ehtiyat {pct}",
+    "powerOver": "Pik həddi {limit} aşılıb",
+    "excess": "Optimaldan artıq güc",
+    "excessHint": "{count} avadanlıq israf rejimində",
+    "excessNone": "Bütün avadanlıqlar optimal zolaqdadır",
+    "optimal": "Bu saat üçün optimal: {value}",
+    "gas": "Qaz sərfi",
+    "gasHint": "Qazanxana, cari saat"
+  },
+  "shift": {
+    "title": "Növbə göstəricisi",
+    "current": "{no}-ci növbə",
+    "actual": "Faktiki",
+    "planToNow": "İndiyədək plan",
+    "shiftPlan": "Növbə planı",
+    "ahead": "Plandan {pct} irəlidə",
+    "behind": "Plandan {pct} geridə",
+    "onPlan": "Plana uyğun",
+    "progress": "Növbənin {pct} hissəsi keçib",
+    "progressAria": "Növbənin gedişi",
+    "none": "Hazırda növbə yoxdur",
+    "next": "Növbəti növbə {time} başlayır",
+    "noneNext": "Plan üzrə növbə yoxdur",
+    "tons": "Məhsul, ton"
+  },
+  "schematic": {
+    "title": "Zavod sxemi",
+    "description": "Sexlər və əsas avadanlıqlar. Bloka klikləyərək avadanlıq detalına keçin.",
+    "aria": "Zavod sxemi. {total} avadanlıq: {normal} normal, {waste} israf, {stopped} dayanıb, {offline} əlaqə yoxdur.",
+    "nodeAria": "{name}: {value}, {status}. Detala keç",
+    "legend": "Vəziyyət izahı",
+    "gasUnit": "m³/saat"
+  },
+  "status": {
+    "normal": "Normal",
+    "waste": "İsraf",
+    "stopped": "Dayanıb",
+    "offline": "Əlaqə yoxdur"
+  },
+  "table": {
+    "caption": "Avadanlıqların cari vəziyyəti, sexlər üzrə",
+    "workshop": "Sex",
+    "equipment": "Avadanlıq",
+    "power": "Cari güc",
+    "optimal": "Optimal zolaq",
+    "status": "Vəziyyət",
+    "lastSeen": "Son siqnal"
+  },
+  "chart": {
+    "title": "Son 60 dəqiqə, ümumi elektrik gücü",
+    "aria": "Son 60 dəqiqənin ümumi elektrik gücü. Cari {current}, maksimum {max}, pik həddi {limit}.",
+    "power": "Ümumi güc",
+    "limit": "Pik həddi",
+    "max": "Maksimum {value}, saat {time}",
+    "avg": "Orta {value}",
+    "caption": "Son 60 dəqiqənin ümumi elektrik gücü, dəqiqə üzrə"
+  },
+  "feed": {
+    "title": "Canlı hadisə lenti",
+    "description": "Son 60 dəqiqənin dəyişiklikləri və bu günün AI aşkarlamaları",
+    "listLabel": "Hadisələr, ən yenisi yuxarıda",
+    "empty": "Son 60 dəqiqədə hadisə olmayıb",
+    "emptyBody": "Avadanlığın vəziyyəti dəyişəndə hadisə burada görünəcək.",
+    "start": "{name} işə düşdü",
+    "stop": "{name} dayandı",
+    "offline": "{name} sayğacı ilə əlaqə kəsildi",
+    "online": "{name} sayğacı ilə əlaqə bərpa olundu",
+    "waste_start": "{name} optimal zolaqdan {kw} yuxarı işləyir",
+    "waste_end": "{name} yenidən optimal zolaqdadır",
+    "load_up": "{name} yükü {pct} artdı",
+    "load_down": "{name} yükü {pct} azaldı",
+    "peak_near": "Ümumi güc {kw}, pik həddinə yaxınlaşır",
+    "anomaly": "{rule}: {subject}",
+    "groupSubject": "{group}, {count} avadanlıq",
+    "plantSubject": "bütün zavod",
+    "openAnomaly": "Anomaliyaya bax"
+  },
+  "loadingLive": "Canlı axın qoşulur"
 }
