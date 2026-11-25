@@ -56,7 +56,58 @@ export function MeasuresTable({
         </div>
       </CardHeader>
       <CardContent className="px-0 sm:px-0">
-        <Table>
+        <ul className="divide-y divide-border border-t border-border md:hidden">
+          {rows.map(({ result: r, values: v }) => {
+            const name = tx(`common:measure.${r.id}`);
+            const isSel = selected === r.id;
+            return (
+              <li key={r.id} className={cn('px-5 py-4', isSel && 'bg-violet-50/70')}>
+                <div className="flex items-start justify-between gap-3">
+                  <div className="min-w-0">
+                    <p className="font-medium text-ink">{name}</p>
+                    <p className="text-xs text-ink-3">
+                      {formatDate(r.implementedAt)} · {t('table.option', { value: r.method })}
+                    </p>
+                  </div>
+                  <MvStatusBadge status={r.status} />
+                </div>
+                <dl className="mt-3 grid grid-cols-3 gap-2 text-xs">
+                  <div>
+                    <dt className="text-ink-3">{t('table.expected')}</dt>
+                    <dd className="font-medium tabular-nums text-ink">
+                      {formatEnergy(r.expectedKwh)}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="text-ink-3">{t('table.verified')}</dt>
+                    <dd className="font-semibold tabular-nums text-ink">
+                      {formatEnergy(r.avoidedKwh)}
+                    </dd>
+                    <dd className="tabular-nums text-ink-3">{formatAzn(v.avoidedAzn)}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-ink-3">{t('table.ci')}</dt>
+                    <dd className="tabular-nums text-ink-2">
+                      {t('table.ciValue', { value: formatEnergy(r.ciKwh) })}
+                    </dd>
+                  </div>
+                </dl>
+                <Button
+                  size="sm"
+                  variant={isSel ? 'subtle' : 'secondary'}
+                  className="mt-3 w-full"
+                  aria-pressed={isSel}
+                  aria-label={t('table.detailsAria', { name })}
+                  onClick={() => onSelect(r.id)}
+                >
+                  {t('table.details')}
+                  <ChevronRight aria-hidden="true" />
+                </Button>
+              </li>
+            );
+          })}
+        </ul>
+        <Table className="hidden md:table">
           <caption className="sr-only">{t('table.title')}</caption>
           <TableHeader>
             <TableRow>
@@ -188,10 +239,18 @@ export function MeasureDetail({
               : t('detail.noInvestment')}
           </CardDescription>
         </div>
-        <Tabs value={method} onValueChange={(m) => setMethod(m as 'B' | 'C')} className="shrink-0">
-          <TabsList aria-label={t('detail.optionLabel')}>
-            <TabsTrigger value="B">{t('detail.optionB')}</TabsTrigger>
-            <TabsTrigger value="C">{t('detail.optionC')}</TabsTrigger>
+        <Tabs
+          value={method}
+          onValueChange={(m) => setMethod(m as 'B' | 'C')}
+          className="w-full shrink-0 lg:w-auto"
+        >
+          <TabsList aria-label={t('detail.optionLabel')} className="grid h-auto w-full grid-cols-2">
+            <TabsTrigger value="B" className="h-auto min-h-8 whitespace-normal py-1">
+              {t('detail.optionB')}
+            </TabsTrigger>
+            <TabsTrigger value="C" className="h-auto min-h-8 whitespace-normal py-1">
+              {t('detail.optionC')}
+            </TabsTrigger>
           </TabsList>
         </Tabs>
       </CardHeader>
@@ -264,7 +323,11 @@ export function MeasureDetail({
                 <Fact
                   label={t('detail.result.saving')}
                   value={formatPct(r.savingPct, 1)}
-                  sub={t('detail.result.achieved', { value: formatPct(v.achievedPct, 0) })}
+                  sub={
+                    x.negative
+                      ? t('detail.result.noSaving')
+                      : t('detail.result.achieved', { value: formatPct(v.achievedPct, 0) })
+                  }
                 />
                 <Fact
                   label={t('detail.result.money')}
@@ -281,15 +344,26 @@ export function MeasureDetail({
                   </dd>
                 </div>
               </dl>
-              {!x.significant && (
+              {x.negative ? (
                 <p className="mt-3 flex gap-1.5 rounded-sm bg-warning-surface px-2 py-1.5 text-xs text-warning-text">
                   <TriangleAlert
                     className="mt-0.5 size-3.5 shrink-0"
                     strokeWidth={1.75}
                     aria-hidden="true"
                   />
-                  {t('detail.result.notSignificant')}
+                  {t('detail.result.negative')}
                 </p>
+              ) : (
+                !x.significant && (
+                  <p className="mt-3 flex gap-1.5 rounded-sm bg-warning-surface px-2 py-1.5 text-xs text-warning-text">
+                    <TriangleAlert
+                      className="mt-0.5 size-3.5 shrink-0"
+                      strokeWidth={1.75}
+                      aria-hidden="true"
+                    />
+                    {t('detail.result.notSignificant')}
+                  </p>
+                )
               )}
             </section>
           </div>
@@ -336,7 +410,7 @@ export function MeasureDetail({
                 [
                   t('detail.adjust.avoided'),
                   formatEnergy(x.avoidedKwh),
-                  'font-semibold text-success-text',
+                  x.negative ? 'font-semibold text-danger-text' : 'font-semibold text-success-text',
                 ],
               ].map(([k, val, cls]) => (
                 <div key={k} className="flex justify-between gap-4 px-3 py-2">
@@ -346,11 +420,15 @@ export function MeasureDetail({
               ))}
             </dl>
             <p className="mt-3 text-13 text-ink-2">
-              {t(up ? 'detail.adjust.conclusionUp' : 'detail.adjust.conclusionDown', {
-                routine: formatEnergy(Math.abs(x.routineAdjustmentKwh)),
-                naive: formatEnergy(x.naiveSavingKwh),
-                avoided: formatEnergy(x.avoidedKwh),
-              })}
+              {x.negative
+                ? t('detail.adjust.conclusionNegative', {
+                    value: formatEnergy(Math.abs(x.avoidedKwh)),
+                  })
+                : t(up ? 'detail.adjust.conclusionUp' : 'detail.adjust.conclusionDown', {
+                    routine: formatEnergy(Math.abs(x.routineAdjustmentKwh)),
+                    naive: formatEnergy(x.naiveSavingKwh),
+                    avoided: formatEnergy(x.avoidedKwh),
+                  })}
             </p>
           </section>
 
@@ -366,10 +444,10 @@ export function MeasureDetail({
             <p className="mt-3 break-words rounded-sm bg-bg-subtle px-2 py-1.5 font-mono text-xs text-ink-2">
               {t('detail.model.equation', {
                 a: formatNumber(q.coef.a, 0),
-                b: formatNumber(q.coef.b, 2),
-                c: formatNumber(q.coef.c, 2),
-                d: formatNumber(q.coef.d, 2),
-                e: formatNumber(q.coef.e, 2),
+                b: signedTerm(q.coef.b),
+                c: signedTerm(q.coef.c),
+                d: signedTerm(q.coef.d),
+                e: signedTerm(q.coef.e),
               })}
             </p>
             <p
@@ -404,4 +482,9 @@ export function MeasureDetail({
       </CardContent>
     </Card>
   );
+}
+
+/** Coefficient with its sign folded into the operator: "+ 30,83" or "− 23,91". */
+function signedTerm(v: number) {
+  return `${v < 0 ? '−' : '+'} ${formatNumber(Math.abs(v), 2)}`;
 }

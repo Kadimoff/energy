@@ -56,7 +56,7 @@ describe('carbon page', () => {
     useSettingsStore.setState({ overrides: { scope2KgCo2PerKwh: 0.5 } });
     renderPage();
     await screen.findByRole('heading', { level: 1, name: 'Karbon' });
-    expect(screen.getByText(/Parametrlərdə dəyişdirilib, ilkin dəyər 0,41/)).toBeInTheDocument();
+    expect(screen.getAllByText(/Parametrlərdə dəyişdirilib, ilkin dəyər 0,41/).length).toBe(2);
     expect(
       screen.getAllByRole('button', { name: /Scope 2 şəbəkə əmsalı: 0,5/ }).length,
     ).toBeGreaterThan(0);

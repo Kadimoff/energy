@@ -97,7 +97,7 @@ export function WaterfallChart({
                   </span>
                   {r.meta && <span className="shrink-0">{r.meta}</span>}
                 </div>
-                <div className="relative h-6 min-w-0 flex-1 rounded-[4px] bg-bg-subtle">
+                <div className="relative h-6 w-full min-w-0 rounded-[4px] bg-bg-subtle sm:w-auto sm:flex-1">
                   <span
                     className={cn(
                       'absolute inset-y-0.5 rounded-[4px] transition-all duration-180 ease-standard',

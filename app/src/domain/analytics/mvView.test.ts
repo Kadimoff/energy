@@ -54,6 +54,7 @@ describe('M&V view models (spec 5.8 / 7.10)', () => {
       expect(x.avoidedKwh).toBeCloseTo(r.adjustedBaselineKwh - r.actualKwh, 3);
       expect(x.tempDeltaC).toBeCloseTo(x.reportMeanTempC - x.baselineMeanTempC, 6);
       expect(x.significant).toBe(r.avoidedKwh > r.ciKwh);
+      expect(x.negative).toBe(false);
     }
   });
 
@@ -71,6 +72,8 @@ describe('M&V view models (spec 5.8 / 7.10)', () => {
     expect(c.boundarySharePct).toBeLessThan(10);
     expect(c.optionCUnsuitable).toBe(true);
     expect(['verified', 'below_expected']).toContain(c.status);
+    // whole facility: other changes dominate a 1 % measure in this boundary
+    expect(mvExplain(a, c).negative).toBe(c.avoidedKwh < 0);
     const office = evaluateMeasureOption(
       a,
       a.ds.measures.find((x) => x.id === 'm-office-hvac')!,

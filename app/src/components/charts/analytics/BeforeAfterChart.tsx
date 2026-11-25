@@ -1,3 +1,4 @@
+import { useReducedMotion } from 'framer-motion';
 import { useState } from 'react';
 import {
   CartesianGrid,
@@ -38,6 +39,7 @@ export function BeforeAfterChart({
   height?: number;
 }) {
   const [cum, setCum] = useState(false);
+  const reduce = useReducedMotion();
   const first = points.find((p) => p.isFuture);
   const last = points[points.length - 1];
   const fmt = cum ? formatEnergy : (v: number) => formatKwh(v);
@@ -81,6 +83,8 @@ export function BeforeAfterChart({
     >
       <ResponsiveContainer width="100%" height="100%">
         <ComposedChart
+          // remount when the simulated month changes so the time axis is rebuilt
+          key={points[0]?.t ?? 0}
           data={points.map((p) => ({
             t: p.t,
             base: val(p, 'base'),
@@ -91,19 +95,14 @@ export function BeforeAfterChart({
         >
           <CartesianGrid vertical={false} stroke="var(--border)" />
           {first && last && (
-            <ReferenceArea
-              x1={first.t}
-              x2={last.t}
-              fill="var(--violet-100)"
-              fillOpacity={0.5}
-              ifOverflow="hidden"
-            />
+            <ReferenceArea x1={first.t} x2={last.t} fill="var(--violet-100)" fillOpacity={0.5} />
           )}
           <XAxis
             dataKey="t"
             type="number"
             scale="time"
-            domain={['dataMin', 'dataMax']}
+            domain={[points[0]?.t ?? 0, last?.t ?? 1]}
+            allowDataOverflow
             tickFormatter={(v: number) => formatDayShort(v)}
             tick={axisTick}
             tickLine={false}
@@ -154,7 +153,7 @@ export function BeforeAfterChart({
             stroke="var(--success)"
             strokeWidth={2}
             dot={false}
-            isAnimationActive
+            isAnimationActive={!reduce}
             animationDuration={180}
           />
         </ComposedChart>

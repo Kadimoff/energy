@@ -177,8 +177,14 @@ export function ScenarioCompare({
                 <TableHeader>
                   <TableRow>
                     <TableHead>{t('saved.metric')}</TableHead>
-                    <TableHead className="text-right">{optA.name}</TableHead>
-                    <TableHead className="text-right">{optB.name}</TableHead>
+                    {[optA, optB].map((o, i) => (
+                      <TableHead key={i} className="text-right">
+                        <span className="block">{o.name}</span>
+                        <span className="block font-normal text-ink-3">
+                          {o.input.monthOffset === 1 ? t('sim.nextMonth') : t('sim.thisMonth')}
+                        </span>
+                      </TableHead>
+                    ))}
                     <TableHead className="text-right">{t('saved.difference')}</TableHead>
                   </TableRow>
                 </TableHeader>

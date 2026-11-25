@@ -147,6 +147,8 @@ export interface MvExplanation {
   reportMeanTempC: number;
   /** avoided saving larger than its confidence interval */
   significant: boolean;
+  /** actual above the adjusted baseline: no saving visible within this boundary */
+  negative: boolean;
   /** CI half width relative to the avoided energy, % */
   ciRelativePct: number;
 }
@@ -172,6 +174,7 @@ export function mvExplain(core: AnalysisCore, r: MeasureResult): MvExplanation {
     baselineMeanTempC: temps(r.baselineFrom, r.baselineTo),
     reportMeanTempC: temps(r.reportFrom, r.reportTo),
     significant: r.avoidedKwh > r.ciKwh,
+    negative: r.avoidedKwh < 0,
     ciRelativePct: r.avoidedKwh !== 0 ? (r.ciKwh / Math.abs(r.avoidedKwh)) * 100 : Number.NaN,
   };
 }

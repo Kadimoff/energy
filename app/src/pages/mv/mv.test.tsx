@@ -40,11 +40,11 @@ describe('M&V page', () => {
     expect(within(detail).getByText('Düzəlişlərin izahı')).toBeInTheDocument();
     expect(within(detail).getByText('R²')).toBeInTheDocument();
     expect(within(detail).getByText(/Model etibarlıdır/)).toBeInTheDocument();
-    // open another measure
+    // open another measure (mobile list and desktop table both render in jsdom)
     await userEvent.click(
-      screen.getByRole('button', {
+      screen.getAllByRole('button', {
         name: /Sex işıqlandırmasının LED-ə keçirilməsi tədbirinin detalları/,
-      }),
+      })[0],
     );
     expect(
       within(screen.getByRole('region', { name: 'Tədbirin detalları' })).getByText(

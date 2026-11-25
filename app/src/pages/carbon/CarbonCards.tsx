@@ -245,7 +245,40 @@ export function FactorsTable({ rows }: { rows: FactorRow[] }) {
         </Button>
       </CardHeader>
       <CardContent className="px-0 sm:px-0">
-        <Table>
+        <ul className="divide-y divide-border border-t border-border md:hidden">
+          {rows.map((r) => (
+            <li key={r.id} className="space-y-1.5 px-5 py-4">
+              <div className="flex items-baseline justify-between gap-3">
+                <p className="text-sm font-medium text-ink">{tx(`factor.${r.id}`)}</p>
+                <p className="whitespace-nowrap text-sm font-semibold tabular-nums text-ink">
+                  {factorValue(r)}
+                </p>
+              </div>
+              {r.overridden && (
+                <p className="text-xs text-info-text">
+                  {t('factors.overridden', {
+                    value:
+                      r.id === 'scope1' || r.id === 'scope2'
+                        ? factorText(r.defaultValue)
+                        : formatNumber(r.defaultValue, 2),
+                  })}
+                </p>
+              )}
+              <p className="text-13 text-ink-2">{r.source}</p>
+              <p className="text-xs text-ink-3">
+                {t('factors.date')}: {r.date ?? '–'} · {t('factors.lastChecked')}:{' '}
+                {r.lastChecked ? formatDate(new Date(r.lastChecked)) : '–'}
+              </p>
+              <div className="flex flex-wrap items-center gap-2">
+                {r.verify && <Badge variant="warning">{t('factors.verify')}</Badge>}
+                <Button asChild size="sm" variant="link">
+                  <Link to="/settings">{t('factors.edit')}</Link>
+                </Button>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <Table className="hidden md:table">
           <caption className="sr-only">{t('factors.title')}</caption>
           <TableHeader>
             <TableRow>

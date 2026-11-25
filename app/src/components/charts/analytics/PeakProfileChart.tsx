@@ -1,3 +1,4 @@
+import { useReducedMotion } from 'framer-motion';
 import {
   Area,
   CartesianGrid,
@@ -46,6 +47,7 @@ export function PeakProfileChart({
   labels: PeakProfileLabels;
   height?: number;
 }) {
+  const reduce = useReducedMotion();
   const rows = plan.slots.map((s, i) => ({
     minute: s.minute,
     base: s.base,
@@ -151,7 +153,7 @@ export function PeakProfileChart({
               stroke={LINE_COLORS[i % LINE_COLORS.length]}
               fill={LINE_COLORS[i % LINE_COLORS.length]}
               fillOpacity={0.55}
-              isAnimationActive
+              isAnimationActive={!reduce}
               animationDuration={180}
             />
           ))}

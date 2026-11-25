@@ -393,7 +393,7 @@ export function CbamSection({
                 </div>
                 <div className="rounded-md border border-border p-4">
                   <dt className="text-xs text-ink-3">{t('cbam.cost.costAzn')}</dt>
-                  <dd className="mt-1 text-2xl font-semibold tabular-nums text-ink">
+                  <dd className="mt-1 text-xl font-semibold tabular-nums text-ink sm:text-2xl">
                     {formatAzn(cost.costAzn)}
                   </dd>
                   <dd className="text-xs text-ink-3">

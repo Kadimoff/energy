@@ -92,7 +92,9 @@
       "perMonth": "Aylıq temp",
       "co2": "CO₂",
       "achieved": "Gözlənilənin {value} hissəsi",
-      "notSignificant": "Qənaət etibar intervalından kiçikdir, nəticə hələ statistik olaraq etibarlı deyil."
+      "notSignificant": "Qənaət etibar intervalından kiçikdir, nəticə hələ statistik olaraq etibarlı deyil.",
+      "negative": "Bu ölçmə sərhədində faktiki sərfiyyat düzəldilmiş baza xəttindən yüksəkdir. Tədbirin təsiri sərhəddəki başqa dəyişikliklərdən ayrılmır.",
+      "noSaving": "Gözlənilən qənaət müşahidə olunmur"
     },
     "adjust": {
       "title": "Düzəlişlərin izahı",
@@ -105,6 +107,7 @@
       "avoided": "Tədbirin təsiri (IPMVP)",
       "unadjusted": "Baza dövrünün orta sərfiyyatı, hesabat günlərinə",
       "conclusionUp": "İstehsal və hava şəraiti hesabat dövründə sərfiyyatı {routine} artırmalı idi. Sadə müqayisə {naive} qənaət göstərərdi, tədbirin real təsiri isə {avoided} təşkil edir.",
+      "conclusionNegative": "Ölçmə sərhədində faktiki sərfiyyat düzəldilmiş baza xəttindən {value} çoxdur, ona görə bu sərhəddə qənaət görünmür.",
       "conclusionDown": "İstehsal və hava şəraiti hesabat dövründə sərfiyyatı {routine} azaltmalı idi. Sadə müqayisə {naive} qənaət göstərərdi, amma bunun bir hissəsi şəraitin hesabınadır. Tədbirin real təsiri {avoided} təşkil edir."
     },
     "model": {
@@ -113,7 +116,7 @@
       "cv": "CV(RMSE)",
       "n": "Müşahidə",
       "nValue": "{value} gün",
-      "equation": "Model: E = {a} + {b}·ton + {c}·CDD + {d}·HDD + {e}·saat",
+      "equation": "Model: E = {a} {b}·ton {c}·CDD {d}·HDD {e}·saat",
       "good": "Model etibarlıdır: CV(RMSE) {limit} həddindən aşağıdır.",
       "low": "Model etibarlılığı aşağıdır, daha çox məlumat lazımdır. CV(RMSE) {limit} həddindən yuxarıdır.",
       "boundaryLow": "Gözlənilən qənaət ölçmə sərhədinin sərfiyyatının cəmi {value} hissəsidir. IPMVP Option C adətən qənaət obyekt sərfiyyatının təxminən 10%-dən çox olduqda tövsiyə edir, bu tədbir üçün Option B daha uyğundur.",

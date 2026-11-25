@@ -116,7 +116,7 @@ function MetricTile({
           <span className="tabular-nums">{formatSigned(d.deltaPct, (v) => formatPct(v, 1))}</span>
         )}
       </p>
-      <p className="mt-1 truncate text-xs tabular-nums text-ink-3">
+      <p className="mt-1 text-xs tabular-nums text-ink-3">
         {t('sim.base', {
           value: d.metric === 'deltaVsBudgetAzn' ? formatSigned(d.base, fmt) : fmt(d.base),
         })}
