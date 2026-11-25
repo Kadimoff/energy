@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { Outlet, useMatches } from 'react-router-dom';
 import { CopilotPanel } from '@/components/ai/CopilotPanel';
 import { ErrorState } from '@/components/common/ErrorState';
@@ -9,6 +9,10 @@ import { useUiStore } from '@/stores/ui';
 import { BottomNav } from './BottomNav';
 import { Sidebar } from './Sidebar';
 import { Topbar } from './Topbar';
+
+const CommandPalette = lazy(() =>
+  import('@/components/command/CommandPalette').then((m) => ({ default: m.CommandPalette })),
+);
 
 export interface RouteHandle {
   /** i18n key of the page title, e.g. "layout:nav.overview" */
@@ -23,6 +27,10 @@ export function AppShell() {
     ?.handle as RouteHandle | undefined;
   const title = handle ? tx(handle.titleKey) : t('common:app.name');
   const setCopilotOpen = useUiStore((s) => s.setCopilotOpen);
+  const setCommandOpen = useUiStore((s) => s.setCommandOpen);
+  const commandOpen = useUiStore((s) => s.commandOpen);
+  const [paletteLoaded, setPaletteLoaded] = useState(false);
+  if (commandOpen && !paletteLoaded) setPaletteLoaded(true);
   const analysis = useAnalysis();
 
   useEffect(() => {
@@ -31,14 +39,24 @@ export function AppShell() {
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+      if (!(e.ctrlKey || e.metaKey) || e.altKey || e.shiftKey) return;
+      const key = e.key.toLowerCase();
+      // Ctrl/⌘+K: command palette, Ctrl/⌘+J: AI Copilot (see DECISIONS.md)
+      if (key === 'k') {
         e.preventDefault();
-        setCopilotOpen(!useUiStore.getState().copilotOpen);
+        const st = useUiStore.getState();
+        if (st.copilotOpen) setCopilotOpen(false);
+        setCommandOpen(!st.commandOpen);
+      } else if (key === 'j') {
+        e.preventDefault();
+        const st = useUiStore.getState();
+        if (st.commandOpen) setCommandOpen(false);
+        setCopilotOpen(!st.copilotOpen);
       }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [setCopilotOpen]);
+  }, [setCopilotOpen, setCommandOpen]);
 
   return (
     <div className="flex min-h-screen">
@@ -72,6 +90,11 @@ export function AppShell() {
       </div>
       <BottomNav />
       <CopilotPanel />
+      {paletteLoaded && (
+        <Suspense fallback={null}>
+          <CommandPalette />
+        </Suspense>
+      )}
     </div>
   );
 }

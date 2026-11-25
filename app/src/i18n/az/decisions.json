@@ -1,4 +1,139 @@
 {
   "title": "AI Qərar Mərkəzi",
-  "subtitle": "AI təklifləri: təsdiqləyin, planlayın və ya rədd edin"
+  "subtitle": "AI təklifləri: təsdiqləyin, planlayın və ya rədd edin. Hər qərar proqnoza dərhal təsir edir.",
+  "summary": {
+    "pending": "Gözləyən qərarlar",
+    "pendingHint": "Qərarınızı gözləyən təkliflər",
+    "potential": "Ümumi potensial qənaət",
+    "potentialEnergy": "{energy}/ay elektrik",
+    "potentialGas": "{gas}/ay qaz",
+    "potentialCo2": "{co2}/il",
+    "accepted": "Bu ay təsdiqlənənlər",
+    "acceptedEffect": "Ayda {azn} gözlənilən qənaət",
+    "forecast": "Ay sonu xərc proqnozu",
+    "forecastHint": "Büdcə {budget}. Təsdiqlənmiş qərarlar proqnozu {azn} azaldır.",
+    "allShare": "Bütün təkliflər birlikdə elektrik sərfiyyatını təxminən {pct} azaldır."
+  },
+  "view": {
+    "label": "Görünüş",
+    "list": "Siyahı",
+    "kanban": "Kanban"
+  },
+  "filters": {
+    "label": "Filtrlər",
+    "status": "Status",
+    "category": "Kateqoriya",
+    "impact": "Təsir",
+    "effort": "Səy",
+    "all": "Hamısı",
+    "pending": "Gözləyən",
+    "active": "Qəbul edilən",
+    "rejected": "Rədd edilən",
+    "reset": "Filtrləri sıfırla",
+    "count": "{count} qərar göstərilir",
+    "impactLevel": {
+      "high": "Yüksək",
+      "medium": "Orta",
+      "low": "Aşağı"
+    }
+  },
+  "card": {
+    "impact": "Gözlənilən təsir",
+    "perMonth": "ayda",
+    "perYear": "ildə",
+    "effort": "Səy",
+    "payback": "Geri qaytarma {months} ay",
+    "paybackNow": "İnvestisiya tələb etmir",
+    "investment": "İnvestisiya {azn}",
+    "risk": "Risk",
+    "confidence": "Etimad",
+    "equipment": "Avadanlıq",
+    "peak": "Pik gücü {kw} azaldır",
+    "scheduledFor": "Planlaşdırılıb: {date}",
+    "rejectedReason": "Rədd səbəbi: {reason}",
+    "decidedAt": "Qərar: {date}",
+    "linkedAnomalies": "{count} əlaqəli anomaliya",
+    "status": "Status"
+  },
+  "why": {
+    "data": "{equipment} sayğaclarının son {days} günlük saatlıq məlumatı, istehsal qrafiki və xarici temperatur.",
+    "rule": "{rules}. Qənaət = tutma payı {capture} × ölçülmüş israf (ayda {pool}). Qənaət israfdan çox ola bilməz.",
+    "compare": "Faktiki sərfiyyat və optimal zolaq: {equipment}",
+    "hourly": "Son 3 gün, saatlıq",
+    "daily": "Son {days} gün, gündəlik"
+  },
+  "actions": {
+    "label": "Qərar əməliyyatları",
+    "approve": "Təsdiqlə",
+    "schedule": "Planla",
+    "reject": "Rədd et",
+    "in_progress": "Tətbiqə başla",
+    "measuring": "Ölçməyə başla",
+    "reopen": "Yenidən baxışa qaytar",
+    "more": "Digər əməliyyatlar"
+  },
+  "scheduleDialog": {
+    "title": "Tətbiq tarixini seçin",
+    "body": "Qənaət seçdiyiniz tarixdən etibarən proqnoza daxil edilir.",
+    "date": "Tətbiq tarixi",
+    "confirm": "Planla",
+    "errors": {
+      "date_required": "Tarix seçin",
+      "date_past": "Keçmiş tarix seçilə bilməz"
+    }
+  },
+  "rejectDialog": {
+    "title": "Təklifi rədd et",
+    "body": "Səbəb seçmək məcburidir.",
+    "reason": "Rədd səbəbi",
+    "note": "Qeyd",
+    "noteOptional": "Qeyd (istəyə görə)",
+    "notePlaceholder": "Qısa izah yazın",
+    "learning": "Rədd səbəbi saxlanılır və AI-ın gələcək təkliflərini yaxşılaşdırmaq üçün istifadə olunur.",
+    "confirm": "Rədd et",
+    "errors": {
+      "reason_required": "Səbəb seçin",
+      "note_required": "\"Digər\" seçildikdə qısa qeyd yazın"
+    }
+  },
+  "notice": {
+    "approved": "Təsdiqləndi: {title}",
+    "scheduled": "Planlaşdırıldı: {title}",
+    "rejected": "Rədd edildi: {title}",
+    "in_progress": "Tətbiq olunur: {title}",
+    "measuring": "Ölçülür: {title}",
+    "proposed": "Yenidən baxışa qaytarıldı: {title}",
+    "forecast": "Ay sonu xərc proqnozu {before} idi, indi {after}.",
+    "dismiss": "Bildirişi bağla"
+  },
+  "kanban": {
+    "label": "Status axını",
+    "empty": "Bu mərhələdə qərar yoxdur",
+    "rejected": "Rədd edilənlər ({count})",
+    "verifiedNote": "Qənaət M&V ilə təsdiqlənir"
+  },
+  "matrix": {
+    "title": "Prioritet matrisi",
+    "subtitle": "Təsir səyə qarşı. Tez qazanclar yuxarı sol kvadrantdadır.",
+    "xAxis": "Səy",
+    "yAxis": "Təsir, AZN/ay",
+    "quadrant": {
+      "quick_win": "Tez qazanclar",
+      "strategic": "Strateji layihələr",
+      "fill_in": "Kiçik addımlar",
+      "later": "Sonraya saxla"
+    },
+    "quickWins": "{count} tez qazanc ayda {azn} verir",
+    "pointLabel": "{title}: ayda {azn}, {effort}, {quadrant}, {status}",
+    "legendPending": "Gözləyən",
+    "legendAccepted": "Qəbul edilib",
+    "legendRejected": "Rədd edilib",
+    "aria": "Prioritet matrisi: {count} təklif təsir və səyə görə yerləşdirilib"
+  },
+  "list": {
+    "title": "Qərarlar",
+    "emptyTitle": "Filtrlərə uyğun qərar yoxdur",
+    "emptyBody": "Filtrləri dəyişin və ya sıfırlayın.",
+    "rejectedHint": "Rədd edilən təkliflər AI üçün rəy kimi saxlanılır."
+  }
 }

@@ -1,4 +1,103 @@
 {
   "title": "Ümumi baxış",
-  "subtitle": "Bu ayın enerji, xərc və karbon vəziyyəti bir baxışda"
+  "subtitle": "Bu ayın enerji, xərc və karbon vəziyyəti bir baxışda",
+  "hero": {
+    "overrun": "Bu ay büdcəni {amount} aşmaq ehtimalı {prob}-dir",
+    "overrunCapped": "Bu ay büdcəni {amount} aşmaq ehtimalı 99%-dən yüksəkdir",
+    "reserve": "Ay büdcə daxilində bağlanır, {amount} ehtiyatla",
+    "reserveRisk": "Ay büdcə daxilində bağlanır, amma aşma ehtimalı {prob}-dir",
+    "state": {
+      "over": "Büdcə aşımı gözlənilir",
+      "risk": "Büdcə riski",
+      "within": "Büdcə daxilində"
+    },
+    "meta": "Ay sonu xərc proqnozu {forecast}, büdcə {budget}. Ayın bitməsinə {days} gün qalıb.",
+    "range": "P10–P90 intervalı: {p10} ilə {p90} arası",
+    "accepted": "Təsdiqlənmiş qərarlar proqnozu {azn} azaldır",
+    "budgetBar": "Proqnoz büdcənin {pct}-i",
+    "budgetMark": "Büdcə"
+  },
+  "summary": {
+    "title": "Vəziyyətin xülasəsi",
+    "waste": "Bu ay optimal zolaqdan artıq sərfiyyatın dəyəri {waste}, ən böyük pay {group} qrupundadır ({groupAzn}).",
+    "potential": "Gözləyən {count} təklif birlikdə ayda {azn} qənaət edə bilər.",
+    "top": "Ən sərfəli addım: {title}, ayda {azn}.",
+    "anomalies": "{total} açıq anomaliyadan {critical} kritik, {high} yüksək ciddilikdədir.",
+    "noAnomalies": "Açıq anomaliya yoxdur.",
+    "equipment": "Normadan ən çox kənara çıxan avadanlıq {name}: bu ay israf payı {pct}.",
+    "cta": "{count} tövsiyəyə bax",
+    "ctaNone": "Qərar Mərkəzinə keç",
+    "ask": "Copilot-dan soruş"
+  },
+  "kpi": {
+    "consumption": "Bu ay sərfiyyat",
+    "consumptionHint": "{days} gün, elektrik",
+    "cost": "Bu ay xərc",
+    "costHint": "Proqnoz {forecast} · büdcə {budget}",
+    "enpi": "EnPI",
+    "enpiHint": "Hədəf {target}",
+    "co2": "CO₂ emissiyası",
+    "co2Hint": "Proqnoz {forecast} · hədəf {target}",
+    "waste": "Bu ay israf",
+    "wasteHint": "Elektrikin {pct}-i",
+    "delta": "keçən ay",
+    "open": "{label}: ətraflı bax"
+  },
+  "chart": {
+    "title": "Faktiki və optimal sərfiyyat",
+    "subtitle": "Elektrik. Bənövşəyi zolaq istehsal və havaya görə lazım olan sərfiyyatdır, ondan yuxarı hissə israfdır.",
+    "summary": "Dövr üzrə faktiki {actual}, optimal {optimal}, israf {waste}."
+  },
+  "waste": {
+    "title": "İsrafın bölgüsü",
+    "subtitle": "Avadanlıq qrupları üzrə, bu ay. Qaz qrupları m³ ilə.",
+    "productive": "İstehsala sərf",
+    "waste": "İsraf",
+    "recoverable": "Tövsiyə ilə qənaət edilə bilən",
+    "row": "{group}: istehsala {productive}, israf {waste}, bunun {recoverable} hissəsi qənaət edilə bilər",
+    "value": "{azn} israf",
+    "valueEnergy": "{amount} israf",
+    "share": "{pct} israf",
+    "more": "Avadanlıqlara keç"
+  },
+  "decisions": {
+    "title": "Gözləyən AI qərarları",
+    "subtitle": "Ən böyük təsiri olan təkliflər",
+    "all": "Hamısı ({count})",
+    "empty": "Gözləyən qərar yoxdur. Bütün təkliflər üzrə qərar verilib.",
+    "emptyAction": "Qərar Mərkəzinə keç",
+    "perMonth": "{azn}/ay",
+    "operatorNote": "Qərarları enerji meneceri təsdiqləyir. Burada yalnız baxış mümkündür."
+  },
+  "anomalies": {
+    "title": "Son anomaliyalar",
+    "subtitle": "Açıq və araşdırılan hadisələr",
+    "empty": "Açıq anomaliya yoxdur. Sistem normadan kənar sərfiyyatı avtomatik izləyir.",
+    "all": "Anomaliyalara keç",
+    "loss": "İtki {azn}"
+  },
+  "carbon": {
+    "title": "Karbon",
+    "subtitle": "{year} ili, Scope 1 və 2",
+    "scope1": "Scope 1, qaz",
+    "scope2": "Scope 2, elektrik",
+    "total": "il ərzində",
+    "target": "İllik hədəf {target}",
+    "progress": "Hədəfin {used}-i istifadə olunub, ilin {elapsed}-i keçib",
+    "onTrack": "İl sonu proqnozu {projected}, hədəf daxilində",
+    "offTrack": "İl sonu proqnozu {projected}, hədəfdən {gap} yuxarı",
+    "more": "Karbon səhifəsinə keç",
+    "donut": "Scope 1 və Scope 2 bölgüsü",
+    "pending": "Gözləyən təkliflər ildə {t} azaldar"
+  },
+  "live": {
+    "title": "İndi zavodda",
+    "body": "{total} açıq anomaliya, {critical} kritik. Avadanlıqların cari gücünü canlı monitorinqdə izləyin.",
+    "cta": "Canlı monitorinqə keç"
+  },
+  "role": {
+    "director": "Direktor görünüşü: xərc, büdcə və karbon önə çəkilib",
+    "energy_manager": "Enerji meneceri görünüşü: israf, səbəblər və qərarlar önə çəkilib",
+    "operator": "Operator görünüşü: anomaliyalar və avadanlıq vəziyyəti önə çəkilib"
+  }
 }

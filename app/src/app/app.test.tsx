@@ -11,7 +11,7 @@ import { useAnomalyStore } from '@/stores/anomalies';
 import { safeStorage } from '@/stores/storage';
 
 describe('app shell', () => {
-  it('renders navigation, page title, footer and opens the copilot with Ctrl+K', async () => {
+  it('renders navigation, page title, footer, palette (Ctrl+K) and copilot (Ctrl+J)', async () => {
     const router = createMemoryRouter(routes, { initialEntries: ['/carbon'] });
     render(
       <Providers>
@@ -28,6 +28,10 @@ describe('app shell', () => {
     ).toBeGreaterThan(0);
     await waitFor(() => expect(document.title).toContain('Karbon'));
     await userEvent.keyboard('{Control>}k{/Control}');
+    expect(
+      await screen.findByPlaceholderText('Səhifə, avadanlıq və ya anomaliya axtarın'),
+    ).toBeInTheDocument();
+    await userEvent.keyboard('{Control>}j{/Control}');
     expect(await screen.findByText('Zavod məlumatı əsasında cavab verir')).toBeInTheDocument();
   }, 30000);
 
@@ -103,15 +107,13 @@ describe('stores', () => {
     an.addComment('x', 'Yoxlandı', 'Aysel');
     expect(useAnomalyStore.getState().comments.x[0].text).toBe('Yoxlandı');
 
-    const sc = useScenarioStore
-      .getState()
-      .save('Plan A', {
-        productionPct: 5,
-        tempDeltaC: 0,
-        shifts: 2,
-        recommendationIds: [],
-        monthOffset: 0,
-      });
+    const sc = useScenarioStore.getState().save('Plan A', {
+      productionPct: 5,
+      tempDeltaC: 0,
+      shifts: 2,
+      recommendationIds: [],
+      monthOffset: 0,
+    });
     useScenarioStore.getState().rename(sc.id, 'Plan B');
     expect(useScenarioStore.getState().saved[0].name).toBe('Plan B');
     useScenarioStore.getState().remove(sc.id);

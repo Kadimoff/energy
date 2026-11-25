@@ -1,4 +1,103 @@
 {
-  "title": "Ümumi baxış",
-  "subtitle": "Bu ayın enerji, xərc və karbon vəziyyəti bir baxışda"
+  "title": "Overview",
+  "subtitle": "This month's energy, cost and carbon at a glance",
+  "hero": {
+    "overrun": "This month the budget is likely to be exceeded by {amount}, probability {prob}",
+    "overrunCapped": "This month the budget is likely to be exceeded by {amount}, probability above 99%",
+    "reserve": "The month closes within budget, with a {amount} reserve",
+    "reserveRisk": "The month closes within budget, but the overrun probability is {prob}",
+    "state": {
+      "over": "Budget overrun expected",
+      "risk": "Budget risk",
+      "within": "Within budget"
+    },
+    "meta": "Month-end cost forecast {forecast}, budget {budget}. {days} days left in the month.",
+    "range": "P10–P90 interval: {p10} to {p90}",
+    "accepted": "Accepted decisions lower the forecast by {azn}",
+    "budgetBar": "Forecast is {pct} of the budget",
+    "budgetMark": "Budget"
+  },
+  "summary": {
+    "title": "Situation summary",
+    "waste": "Consumption above the optimal band is worth {waste} this month, the largest share is in {group} ({groupAzn}).",
+    "potential": "The {count} pending proposals could save {azn} per month together.",
+    "top": "Most valuable step: {title}, {azn} per month.",
+    "anomalies": "Of {total} open anomalies, {critical} are critical and {high} high severity.",
+    "noAnomalies": "There are no open anomalies.",
+    "equipment": "Equipment furthest from normal: {name}, waste share this month {pct}.",
+    "cta": "View {count} recommendations",
+    "ctaNone": "Go to the Decision Center",
+    "ask": "Ask the copilot"
+  },
+  "kpi": {
+    "consumption": "Consumption this month",
+    "consumptionHint": "{days} days, electricity",
+    "cost": "Cost this month",
+    "costHint": "Forecast {forecast} · budget {budget}",
+    "enpi": "EnPI",
+    "enpiHint": "Target {target}",
+    "co2": "CO₂ emissions",
+    "co2Hint": "Forecast {forecast} · target {target}",
+    "waste": "Waste this month",
+    "wasteHint": "{pct} of electricity",
+    "delta": "last month",
+    "open": "{label}: view details"
+  },
+  "chart": {
+    "title": "Actual and optimal consumption",
+    "subtitle": "Electricity. The violet band is the consumption needed for production and weather, anything above it is waste.",
+    "summary": "Actual {actual}, optimal {optimal}, waste {waste} in the period."
+  },
+  "waste": {
+    "title": "Waste breakdown",
+    "subtitle": "By equipment group, this month. Gas groups in m³.",
+    "productive": "Used for production",
+    "waste": "Waste",
+    "recoverable": "Recoverable with recommendations",
+    "row": "{group}: production {productive}, waste {waste}, of which {recoverable} is recoverable",
+    "value": "{azn} waste",
+    "valueEnergy": "{amount} waste",
+    "share": "{pct} waste",
+    "more": "Go to equipment"
+  },
+  "decisions": {
+    "title": "Pending AI decisions",
+    "subtitle": "Proposals with the largest impact",
+    "all": "All ({count})",
+    "empty": "No pending decisions. Every proposal has a decision.",
+    "emptyAction": "Go to the Decision Center",
+    "perMonth": "{azn}/month",
+    "operatorNote": "Decisions are approved by the energy manager. View only here."
+  },
+  "anomalies": {
+    "title": "Latest anomalies",
+    "subtitle": "Open and investigated events",
+    "empty": "No open anomalies. The system watches for abnormal consumption automatically.",
+    "all": "Go to anomalies",
+    "loss": "Loss {azn}"
+  },
+  "carbon": {
+    "title": "Carbon",
+    "subtitle": "{year}, Scope 1 and 2",
+    "scope1": "Scope 1, gas",
+    "scope2": "Scope 2, electricity",
+    "total": "this year",
+    "target": "Annual target {target}",
+    "progress": "{used} of the target used, {elapsed} of the year passed",
+    "onTrack": "Year-end forecast {projected}, within target",
+    "offTrack": "Year-end forecast {projected}, {gap} above target",
+    "more": "Go to carbon",
+    "donut": "Scope 1 and Scope 2 split",
+    "pending": "Pending proposals would cut {t} per year"
+  },
+  "live": {
+    "title": "In the plant now",
+    "body": "{total} open anomalies, {critical} critical. Follow the current load of every machine in live monitoring.",
+    "cta": "Go to live monitoring"
+  },
+  "role": {
+    "director": "Director view: cost, budget and carbon first",
+    "energy_manager": "Energy manager view: waste, causes and decisions first",
+    "operator": "Operator view: anomalies and equipment status first"
+  }
 }

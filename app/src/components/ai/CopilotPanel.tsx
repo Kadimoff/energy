@@ -7,7 +7,7 @@ import { useUiStore } from '@/stores/ui';
 
 const CopilotContent = lazy(() => import('./copilot/CopilotContent'));
 
-/** Right side AI Copilot sheet (420 px), opened from the Topbar or Ctrl/⌘+K. */
+/** Right side AI Copilot sheet (420 px), opened from the Topbar, the command palette or Ctrl/⌘+J. */
 export function CopilotPanel() {
   const { t } = useT('layout');
   const open = useUiStore((s) => s.copilotOpen);

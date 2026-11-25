@@ -1,4 +1,12 @@
-import { Bell, CalendarDays, ChevronDown, Sparkles, TriangleAlert, UserRound } from 'lucide-react';
+import {
+  Bell,
+  CalendarDays,
+  ChevronDown,
+  Search,
+  Sparkles,
+  TriangleAlert,
+  UserRound,
+} from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -246,6 +254,28 @@ export interface TopbarProps {
   title: string;
 }
 
+/** Opens the command palette (Ctrl/⌘+K). */
+function SearchButton() {
+  const { t } = useT('copilot');
+  const setOpen = useUiStore((s) => s.setCommandOpen);
+  return (
+    <Button
+      variant="ghost"
+      size="sm"
+      onClick={() => setOpen(true)}
+      aria-keyshortcuts="Control+K Meta+K"
+      aria-label={`${t('command.open')} (${t('command.shortcut')})`}
+      className="max-lg:size-9 max-lg:px-0 lg:border lg:border-border lg:bg-surface lg:text-ink-3"
+    >
+      <Search className="!size-[18px] lg:!size-4" aria-hidden="true" />
+      <span className="hidden lg:inline">{t('command.open')}</span>
+      <kbd className="ml-2 hidden rounded-[5px] border border-border bg-bg-subtle px-1.5 py-0.5 font-sans text-[10px] font-semibold text-ink-3 xl:inline">
+        {t('command.shortcut')}
+      </kbd>
+    </Button>
+  );
+}
+
 /** Top bar: page title, range, role, notifications, live, AI Copilot (spec 7.1). */
 export function Topbar({ title }: TopbarProps) {
   const { t } = useT('layout');
@@ -266,12 +296,13 @@ export function Topbar({ title }: TopbarProps) {
         <div className="hidden lg:block">
           <LiveIndicator />
         </div>
+        <SearchButton />
         <Notifications />
         <Button
           variant="primary"
           size="sm"
           onClick={() => setCopilotOpen(true)}
-          aria-keyshortcuts="Control+K Meta+K"
+          aria-keyshortcuts="Control+J Meta+J"
           className="max-md:size-9 max-md:px-0"
         >
           <Sparkles aria-hidden="true" />

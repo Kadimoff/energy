@@ -1,4 +1,139 @@
 {
-  "title": "AI Qərar Mərkəzi",
-  "subtitle": "AI təklifləri: təsdiqləyin, planlayın və ya rədd edin"
+  "title": "AI Decision Center",
+  "subtitle": "AI proposals: approve, schedule or reject. Every decision updates the forecast immediately.",
+  "summary": {
+    "pending": "Pending decisions",
+    "pendingHint": "Proposals waiting for your decision",
+    "potential": "Total potential saving",
+    "potentialEnergy": "{energy}/month electricity",
+    "potentialGas": "{gas}/month gas",
+    "potentialCo2": "{co2}/year",
+    "accepted": "Accepted this month",
+    "acceptedEffect": "{azn} expected saving per month",
+    "forecast": "Month-end cost forecast",
+    "forecastHint": "Budget {budget}. Accepted decisions lower the forecast by {azn}.",
+    "allShare": "All proposals together cut electricity use by about {pct}."
+  },
+  "view": {
+    "label": "View",
+    "list": "List",
+    "kanban": "Kanban"
+  },
+  "filters": {
+    "label": "Filters",
+    "status": "Status",
+    "category": "Category",
+    "impact": "Impact",
+    "effort": "Effort",
+    "all": "All",
+    "pending": "Pending",
+    "active": "Accepted",
+    "rejected": "Rejected",
+    "reset": "Reset filters",
+    "count": "Showing {count} decisions",
+    "impactLevel": {
+      "high": "High",
+      "medium": "Medium",
+      "low": "Low"
+    }
+  },
+  "card": {
+    "impact": "Expected impact",
+    "perMonth": "per month",
+    "perYear": "per year",
+    "effort": "Effort",
+    "payback": "Payback {months} months",
+    "paybackNow": "No investment needed",
+    "investment": "Investment {azn}",
+    "risk": "Risk",
+    "confidence": "Confidence",
+    "equipment": "Equipment",
+    "peak": "Cuts peak power by {kw}",
+    "scheduledFor": "Scheduled: {date}",
+    "rejectedReason": "Reject reason: {reason}",
+    "decidedAt": "Decided: {date}",
+    "linkedAnomalies": "{count} linked anomalies",
+    "status": "Status"
+  },
+  "why": {
+    "data": "Hourly data of the {equipment} meters for the last {days} days, production schedule and outdoor temperature.",
+    "rule": "{rules}. Saving = capture share {capture} × measured waste ({pool} per month). A saving can never exceed the waste.",
+    "compare": "Actual consumption and optimal band: {equipment}",
+    "hourly": "Last 3 days, hourly",
+    "daily": "Last {days} days, daily"
+  },
+  "actions": {
+    "label": "Decision actions",
+    "approve": "Approve",
+    "schedule": "Schedule",
+    "reject": "Reject",
+    "in_progress": "Start implementation",
+    "measuring": "Start measuring",
+    "reopen": "Return to review",
+    "more": "More actions"
+  },
+  "scheduleDialog": {
+    "title": "Choose the implementation date",
+    "body": "The saving is included in the forecast from the chosen date.",
+    "date": "Implementation date",
+    "confirm": "Schedule",
+    "errors": {
+      "date_required": "Choose a date",
+      "date_past": "A past date cannot be chosen"
+    }
+  },
+  "rejectDialog": {
+    "title": "Reject proposal",
+    "body": "A reason is required.",
+    "reason": "Reject reason",
+    "note": "Note",
+    "noteOptional": "Note (optional)",
+    "notePlaceholder": "Write a short explanation",
+    "learning": "The reason is stored and used to improve future AI proposals.",
+    "confirm": "Reject",
+    "errors": {
+      "reason_required": "Choose a reason",
+      "note_required": "Write a short note when \"Other\" is selected"
+    }
+  },
+  "notice": {
+    "approved": "Approved: {title}",
+    "scheduled": "Scheduled: {title}",
+    "rejected": "Rejected: {title}",
+    "in_progress": "In progress: {title}",
+    "measuring": "Measuring: {title}",
+    "proposed": "Returned to review: {title}",
+    "forecast": "Month-end cost forecast was {before}, now {after}.",
+    "dismiss": "Dismiss notice"
+  },
+  "kanban": {
+    "label": "Status flow",
+    "empty": "No decisions in this stage",
+    "rejected": "Rejected ({count})",
+    "verifiedNote": "Savings are verified by M&V"
+  },
+  "matrix": {
+    "title": "Priority matrix",
+    "subtitle": "Impact versus effort. Quick wins are in the top left quadrant.",
+    "xAxis": "Effort",
+    "yAxis": "Impact, AZN/month",
+    "quadrant": {
+      "quick_win": "Quick wins",
+      "strategic": "Strategic projects",
+      "fill_in": "Small steps",
+      "later": "Keep for later"
+    },
+    "quickWins": "{count} quick wins bring {azn} per month",
+    "pointLabel": "{title}: {azn} per month, {effort}, {quadrant}, {status}",
+    "legendPending": "Pending",
+    "legendAccepted": "Accepted",
+    "legendRejected": "Rejected",
+    "aria": "Priority matrix: {count} proposals placed by impact and effort"
+  },
+  "list": {
+    "title": "Decisions",
+    "emptyTitle": "No decisions match the filters",
+    "emptyBody": "Change or reset the filters.",
+    "rejectedHint": "Rejected proposals are kept as feedback for the AI."
+  }
 }

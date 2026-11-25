@@ -1,4 +1,119 @@
 {
   "title": "AI Copilot",
-  "subtitle": "Zavod məlumatına əsaslanan cavablar"
+  "subtitle": "Answers based on plant data",
+  "presets": {
+    "budget": "Why are we over budget this month?",
+    "top_waste": "Which equipment wastes the most?",
+    "recommendations": "Top 3 recommendations for next month",
+    "co2_target": "What should we do to reach the CO₂ target?",
+    "last_night": "What happened last night?"
+  },
+  "ui": {
+    "intro": "Ask about budget, waste, anomalies and carbon. Answers are computed from the dashboard data.",
+    "presetsTitle": "Quick questions",
+    "inputLabel": "Question for the copilot",
+    "placeholder": "For example: why does K-2 run at night?",
+    "send": "Send",
+    "clear": "Clear conversation",
+    "you": "You",
+    "thinking": "Analysing data",
+    "references": "References",
+    "followUp": "You can also ask",
+    "disclaimer": "Answers are computed from sample data. The final decision is yours.",
+    "shortcutHint": "Toggle with Ctrl J",
+    "openDecision": "Open in Decision Center",
+    "openEquipment": "View equipment",
+    "answerFor": "Answer: {question}",
+    "loadingData": "Loading plant data"
+  },
+  "ref": {
+    "decisionDetail": "{azn}/month · {co2}/year · {effort}",
+    "equipmentDetail": "Waste share this month {pct}",
+    "nightWaste": "Night waste {azn}",
+    "budgetLine": "Dashed line: budget {budget}",
+    "monthlyTarget": "Dashed line: monthly target {target}",
+    "enpiTarget": "Dashed line: target {target}",
+    "last30": "Last 30 days",
+    "openForecast": "Go to forecast and scenarios",
+    "openCarbon": "Go to carbon",
+    "openAnomalies": "Go to anomalies",
+    "openDecisions": "Go to the AI Decision Center",
+    "openMv": "Go to savings and verification"
+  },
+  "answers": {
+    "budget": {
+      "over": "Month-end cost forecast {forecast}, budget {budget}. Probability of exceeding the budget by {overrun}: {prob}.",
+      "within": "Month-end cost forecast {forecast}, budget {budget}. The month closes with a {reserve} reserve, overrun probability {prob}.",
+      "drivers": "Consumption above the optimal band is worth {waste} this month. Largest shares: {list}.",
+      "potential": "Approving the {count} pending proposals would cut the monthly cost by {azn}.",
+      "chart": "Cumulative cost forecast and budget"
+    },
+    "topWaste": {
+      "main": "The equipment wasting the most this month is {name}: {waste}, about {azn}. That is {pct} of its consumption.",
+      "cause": "Main cause {rule}: {count} open events.",
+      "next": "Next: {list}.",
+      "none": "No equipment is above its optimal band this month.",
+      "chart": "{code}: daily waste"
+    },
+    "recommendations": {
+      "main": "The {count} proposals with the largest impact together save {azn} per month and {co2} per year:",
+      "item": "{n}. {title}: {azn} per month, {effort}.",
+      "none": "There are no pending proposals. All proposals have a decision."
+    },
+    "co2": {
+      "main": "Emissions over the last 12 months {rolling}, annual target {target}. Forecast for {year}: {projected}.",
+      "gapCovered": "Reaching the target needs {gap} less per year. Pending proposals cut {pending} per year and fully close the gap.",
+      "gapOpen": "Reaching the target needs {gap} less per year. Pending proposals cut {pending} per year, another {rest} needs extra measures.",
+      "noGap": "The last 12 months are within the target. Pending proposals would cut another {pending} per year.",
+      "top": "Largest CO₂ impact: {list}.",
+      "chart": "Monthly emissions, last 12 months"
+    },
+    "lastNight": {
+      "main": "Between {from} and {to} the plant used {actual}. The upper edge of the optimal band was {upper}.",
+      "waste": "Consumption above the band is worth {azn}. Largest shares: {list}.",
+      "clean": "Night consumption stayed within the optimal band.",
+      "anomalies": "{count} anomalies were recorded in this period: {list}.",
+      "chart": "Hourly night consumption and optimal band"
+    },
+    "equipment": {
+      "main": "{name} used {actual} this month. {waste} of it ({pct}) is above the optimal band, estimated loss {azn}.",
+      "anomalies": "Open anomalies ({count}): {list}.",
+      "noAnomalies": "This equipment has no open anomalies.",
+      "rec": "Related proposal: {title}, saves {azn} per month, status: {status}.",
+      "chart": "{code}: last 14 days, actual and optimal band"
+    },
+    "anomalies": {
+      "main": "There are {total} open anomalies: {critical} critical, {high} high severity. Total loss {azn}.",
+      "latest": "Latest: {title}, {time}."
+    },
+    "savings": {
+      "main": "{count} implemented measures saved {kwh} in their reporting periods, worth {azn}. At the current rate about {perMonth} per month.",
+      "status": "{verified} measures are verified, {below} deliver less than expected, {measuring} are still being measured.",
+      "accepted": "In addition, {count} approved AI decisions are expected to save {azn} per month."
+    },
+    "enpi": {
+      "main": "EnPI this month is {value}, it was {previous} in the same period last month ({delta}). Target {target}.",
+      "chart": "Weekly EnPI, last 8 weeks"
+    }
+  },
+  "fallback": {
+    "text": "This question cannot be answered yet. You can ask:"
+  },
+  "command": {
+    "title": "Command palette",
+    "description": "Search pages, equipment, anomalies or decisions",
+    "placeholder": "Search pages, equipment or anomalies",
+    "open": "Search",
+    "shortcut": "Ctrl K",
+    "empty": "Nothing found. You can ask the AI Copilot instead.",
+    "groupAi": "AI",
+    "groupPages": "Pages",
+    "groupEquipment": "Equipment",
+    "groupAnomalies": "Anomalies",
+    "groupDecisions": "Pending decisions",
+    "askCopilot": "Ask the AI Copilot",
+    "askCopilotWith": "Ask the AI Copilot: {query}",
+    "copilotShortcut": "Ctrl J",
+    "hintNavigate": "Enter to select, Esc to close"
+  }
 }

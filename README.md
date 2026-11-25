@@ -45,7 +45,8 @@ app/src/
     config/       all tariffs, factors, budgets, targets, thresholds (JSON)
     mock/         deterministic generator, injected waste scenarios
     sources/      EnergyDataSource interface, MockDataSource, analysis web worker
-  stores/         zustand stores + derived.ts (view-model hooks for pages)
+  services/       CopilotService interface + LocalCopilotService (template, keyword intents)
+  stores/         zustand stores + derived.ts / coreViews.ts (view-model hooks for pages)
   i18n/<lang>/    one JSON per area (az default, en mirror)
   lib/            format.ts (az numbers/dates/units), utils, hooks
   styles/         tokens.css (design tokens), globals.css

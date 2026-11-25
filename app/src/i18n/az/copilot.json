@@ -1,4 +1,119 @@
 {
   "title": "AI Copilot",
-  "subtitle": "Zavod məlumatına əsaslanan cavablar"
+  "subtitle": "Zavod məlumatına əsaslanan cavablar",
+  "presets": {
+    "budget": "Bu ay niyə büdcəni aşırıq?",
+    "top_waste": "Ən çox israf edən avadanlıq hansıdır?",
+    "recommendations": "Gələn ay üçün 3 əsas tövsiyə",
+    "co2_target": "CO₂ hədəfinə çatmaq üçün nə etməliyik?",
+    "last_night": "Dünən gecə nə baş verib?"
+  },
+  "ui": {
+    "intro": "Büdcə, israf, anomaliyalar və karbon haqqında soruşun. Cavablar dashboard məlumatından hesablanır.",
+    "presetsTitle": "Tez suallar",
+    "inputLabel": "Copilot-a sual",
+    "placeholder": "Məsələn: K-2 niyə gecə işləyir?",
+    "send": "Göndər",
+    "clear": "Söhbəti təmizlə",
+    "you": "Siz",
+    "thinking": "Məlumat təhlil olunur",
+    "references": "İstinadlar",
+    "followUp": "Bunu da soruşa bilərsiniz",
+    "disclaimer": "Cavablar nümunə məlumatdan hesablanır. Son qərar sizindir.",
+    "shortcutHint": "Ctrl J ilə açıb bağlayın",
+    "openDecision": "Qərar Mərkəzində aç",
+    "openEquipment": "Avadanlığa bax",
+    "answerFor": "Cavab: {question}",
+    "loadingData": "Zavod məlumatı yüklənir"
+  },
+  "ref": {
+    "decisionDetail": "{azn}/ay · {co2}/il · {effort}",
+    "equipmentDetail": "Bu ay israf payı {pct}",
+    "nightWaste": "Gecə israfı {azn}",
+    "budgetLine": "Kəsik xətt: büdcə {budget}",
+    "monthlyTarget": "Kəsik xətt: aylıq hədəf {target}",
+    "enpiTarget": "Kəsik xətt: hədəf {target}",
+    "last30": "Son 30 gün",
+    "openForecast": "Proqnoz və ssenarilərə keç",
+    "openCarbon": "Karbon səhifəsinə keç",
+    "openAnomalies": "Anomaliyalara keç",
+    "openDecisions": "AI Qərar Mərkəzinə keç",
+    "openMv": "Qənaət və yoxlamaya keç"
+  },
+  "answers": {
+    "budget": {
+      "over": "Ay sonu xərc proqnozu {forecast}, büdcə {budget}. Büdcənin {overrun} aşılması ehtimalı {prob}.",
+      "within": "Ay sonu xərc proqnozu {forecast}, büdcə {budget}. Ay {reserve} ehtiyatla bağlanır, aşma ehtimalı {prob}.",
+      "drivers": "Bu ay optimal zolaqdan artıq sərfiyyatın dəyəri {waste}. Ən böyük paylar: {list}.",
+      "potential": "Gözləyən {count} təklif təsdiqlənsə, aylıq xərc {azn} azalar.",
+      "chart": "Toplanan xərc proqnozu və büdcə"
+    },
+    "topWaste": {
+      "main": "Bu ay ən çox israf edən avadanlıq {name}: {waste}, təxmini {azn}. Bu, sərfiyyatının {pct} hissəsidir.",
+      "cause": "Əsas səbəb {rule}: {count} açıq hadisə.",
+      "next": "Sonrakılar: {list}.",
+      "none": "Bu ay heç bir avadanlıqda optimal zolaqdan artıq sərfiyyat yoxdur.",
+      "chart": "{code}: gündəlik israf"
+    },
+    "recommendations": {
+      "main": "Ən böyük təsiri olan {count} təklif birlikdə ayda {azn} və ildə {co2} azaldır:",
+      "item": "{n}. {title}: ayda {azn}, {effort}.",
+      "none": "Gözləyən təklif yoxdur. Bütün təkliflər üzrə qərar verilib."
+    },
+    "co2": {
+      "main": "Son 12 ayda emissiya {rolling}, illik hədəf {target}. {year} ili üzrə proqnoz {projected}.",
+      "gapCovered": "Hədəfə çatmaq üçün ildə {gap} azaltmaq lazımdır. Gözləyən təkliflər ildə {pending} azaldır və bu fərqi tam örtür.",
+      "gapOpen": "Hədəfə çatmaq üçün ildə {gap} azaltmaq lazımdır. Gözləyən təkliflər ildə {pending} azaldır, daha {rest} üçün əlavə tədbir lazımdır.",
+      "noGap": "Son 12 ay hədəf daxilindədir. Gözləyən təkliflər əlavə olaraq ildə {pending} azaldar.",
+      "top": "Ən böyük CO₂ təsiri: {list}.",
+      "chart": "Aylıq emissiya, son 12 ay"
+    },
+    "lastNight": {
+      "main": "{from} ilə {to} arasında zavod {actual} sərf edib. Optimal zolağın yuxarı həddi {upper} idi.",
+      "waste": "Zolaqdan artıq sərfiyyatın dəyəri {azn}. Ən böyük paylar: {list}.",
+      "clean": "Gecə sərfiyyatı optimal zolaq daxilində qalıb.",
+      "anomalies": "Bu müddətdə {count} anomaliya qeydə alınıb: {list}.",
+      "chart": "Gecə saatlıq sərfiyyat və optimal zolaq"
+    },
+    "equipment": {
+      "main": "{name} bu ay {actual} sərf edib. Bunun {waste} hissəsi ({pct}) optimal zolaqdan artıqdır, təxmini itki {azn}.",
+      "anomalies": "Açıq anomaliyalar ({count}): {list}.",
+      "noAnomalies": "Bu avadanlıqda açıq anomaliya yoxdur.",
+      "rec": "Əlaqəli təklif: {title}, ayda {azn} qənaət, status: {status}.",
+      "chart": "{code}: son 14 gün, faktiki və optimal zolaq"
+    },
+    "anomalies": {
+      "main": "Hazırda {total} açıq anomaliya var: {critical} kritik, {high} yüksək ciddilikdə. Ümumi itki {azn}.",
+      "latest": "Ən sonuncu: {title}, {time}."
+    },
+    "savings": {
+      "main": "Tətbiq olunmuş {count} tədbir hesabat dövründə {kwh} qənaət edib, bu {azn} deməkdir. Hazırkı templə ayda təxminən {perMonth}.",
+      "status": "{verified} tədbirin qənaəti təsdiqlənib, {below} tədbir gözləniləndən az nəticə verir, {measuring} tədbir hələ ölçülür.",
+      "accepted": "Bundan əlavə təsdiqlənmiş {count} AI qərarı ayda {azn} gözlənilən qənaət verir."
+    },
+    "enpi": {
+      "main": "Bu ay EnPI {value}, əvvəlki ayın eyni dövründə {previous} idi ({delta}). Hədəf {target}.",
+      "chart": "Həftəlik EnPI, son 8 həftə"
+    }
+  },
+  "fallback": {
+    "text": "Bu sualı hələ cavablandıra bilmirəm. Bunları soruşa bilərsiniz:"
+  },
+  "command": {
+    "title": "Komanda palitrası",
+    "description": "Səhifə, avadanlıq, anomaliya və ya qərar axtarın",
+    "placeholder": "Səhifə, avadanlıq və ya anomaliya axtarın",
+    "open": "Axtar",
+    "shortcut": "Ctrl K",
+    "empty": "Heç nə tapılmadı. Sualı AI Copilot-a verə bilərsiniz.",
+    "groupAi": "AI",
+    "groupPages": "Səhifələr",
+    "groupEquipment": "Avadanlıqlar",
+    "groupAnomalies": "Anomaliyalar",
+    "groupDecisions": "Gözləyən qərarlar",
+    "askCopilot": "AI Copilot-a soruş",
+    "askCopilotWith": "AI Copilot-a soruş: {query}",
+    "copilotShortcut": "Ctrl J",
+    "hintNavigate": "Seçmək üçün Enter, bağlamaq üçün Esc"
+  }
 }
