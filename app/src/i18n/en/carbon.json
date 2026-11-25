@@ -1,4 +1,160 @@
 {
   "title": "Karbon",
-  "subtitle": "Scope 1 və 2 emissiyaları, intensivlik və CBAM hazırlığı"
+  "subtitle": "Scope 1 və 2 emissiyaları, intensivlik, azalma yol xəritəsi və CBAM hazırlığı",
+  "kpi": {
+    "total": "Ümumi emissiya, {year}",
+    "totalHint": "İl sonu proqnozu {value}",
+    "scope1": "Scope 1, təbii qaz",
+    "scope2": "Scope 2, elektrik",
+    "share": "Ümumi emissiyanın {value} hissəsi",
+    "intensity": "Karbon intensivliyi",
+    "intensityHint": "{year} üzrə orta, ton məhsula",
+    "target": "İllik hədəfə qarşı",
+    "targetHint": "Hədəf {target}, il sonu proqnozu {forecast}",
+    "onTrack": "Hədəfə uyğun gedir",
+    "offTrack": "İl sonu proqnozu hədəfdən {value} yuxarıdır",
+    "targetUsed": "Hədəfin {value} hissəsi istifadə olunub",
+    "proRata": "Bu tarixə qədər hədəf payı {value}",
+    "factors": "Əmsallar",
+    "ytdBasis": "1 yanvardan bu günə qədər faktiki"
+  },
+  "factor": {
+    "scope1": "Scope 1 təbii qaz əmsalı",
+    "scope2": "Scope 2 şəbəkə əmsalı",
+    "gasKwhPerM3": "Qazın m³-dən kVt·saata çevrilməsi",
+    "euEtsPrice": "Aİ ETS qiyməti",
+    "eurToAzn": "Avro məzənnəsi"
+  },
+  "factorShort": {
+    "scope1": "Scope 1 əmsalı",
+    "scope2": "Scope 2 əmsalı",
+    "gasKwhPerM3": "Qaz çevirmə"
+  },
+  "monthly": {
+    "title": "Aylıq emissiya",
+    "subtitle": "Scope 1 və 2 yığılmış sütunlar, intensivlik ikinci oxda",
+    "summary": "Son ay {month}: ümumi {total}, intensivlik {intensity}",
+    "month": "Ay",
+    "scope1": "Scope 1 (qaz)",
+    "scope2": "Scope 2 (elektrik)",
+    "total": "Cəmi",
+    "intensity": "kq CO₂/t",
+    "partial": "davam edir"
+  },
+  "sources": {
+    "title": "Mənbələr üzrə bölgü",
+    "subtitle": "{year} üzrə, avadanlıq qrupları və qaz istifadəçiləri",
+    "scope": "Scope {n}",
+    "aria": "Mənbələr üzrə emissiya bölgüsü",
+    "group": "Qrup",
+    "amount": "Sərfiyyat",
+    "emissions": "Emissiya",
+    "share": "Pay"
+  },
+  "roadmap": {
+    "title": "Azalma yol xəritəsi",
+    "subtitle": "Son 12 ayın emissiyası, hər tövsiyənin illik azaltması (təkrar sayılmadan) və illik hədəf",
+    "summary": "Cari {current}, bütün tövsiyələrdən sonra {after}, hədəf {target}",
+    "start": "Son 12 ay ({from} ilə {to} arası)",
+    "result": "Tövsiyələrdən sonra",
+    "target": "İllik hədəf",
+    "level": "Emissiya səviyyəsi",
+    "reduction": "Tövsiyənin azaltması",
+    "reachable": "Bütün tövsiyələr tətbiq olunsa, emissiya hədəfdən {value} aşağı düşür",
+    "gap": "Bütün tövsiyələrdən sonra da hədəfə {value} çatmır",
+    "totalReduction": "Ümumi azalma {value}/il",
+    "axisNote": "Kiçik addımlar görünsün deyə ox {value} ilə başlayır",
+    "step": "Addım",
+    "change": "Dəyişiklik",
+    "levelAfter": "Səviyyə",
+    "status": "Status",
+    "openDecisions": "Qərar Mərkəzində aç"
+  },
+  "factors": {
+    "title": "Emissiya əmsalları",
+    "subtitle": "Bütün hesablamalarda istifadə olunan əmsallar, mənbələri və tarixləri",
+    "name": "Əmsal",
+    "value": "Dəyər",
+    "source": "Mənbə",
+    "date": "Tarix",
+    "lastChecked": "Son yoxlama",
+    "overridden": "Parametrlərdə dəyişdirilib, ilkin dəyər {value}",
+    "verify": "Rəsmi mənbədən yoxlayın",
+    "edit": "Parametrlərdə dəyiş",
+    "basis": "Əsas",
+    "openSource": "Mənbəni aç"
+  },
+  "cbam": {
+    "title": "CBAM hazırlığı",
+    "subtitle": "Aİ-nin karbon sərhəd tənzimləmə mexanizmi üzrə ilkin yoxlama",
+    "disclaimer": "Bu, ilkin qiymətləndirmədir, rəsmi CBAM hesabatı deyil.",
+    "timeline": "CBAM {from} tarixindən definitiv mərhələdədir. Definitiv mərhələnin ilk ili üzrə idxal üçün illik bəyannamə {due} tarixinə qədər təqdim olunur.",
+    "plantNote": "Plastik məmulatlar hazırda CBAM əhatəsində deyil, ona görə bu zavodun məhsulu çox güman ki, əhatədən kənardadır. Aİ əhatənin genişləndirilməsini (o cümlədən üzvi kimyəvi maddələr və polimerlər) qiymətləndirir, ona görə vəziyyəti izləmək lazımdır.",
+    "importerNote": "CBAM öhdəliyi Aİ-dəki idxalçının üzərinə düşür. İxracatçı ondan məhsulun daxil edilmiş emissiya məlumatını tələb edə bilər.",
+    "check": {
+      "title": "Məhsulunuz CBAM-a düşürmü?",
+      "group": "Məhsul qrupu",
+      "q1": "Məhsul CBAM əhatəsindəki qrupa aiddir",
+      "q1Hint": "Əhatə: sement, dəmir və polad, alüminium, gübrələr, elektrik enerjisi, hidrogen",
+      "q2": "Məhsul Aİ-yə ixrac olunur",
+      "q3": "İllik ixrac 50 tondan çoxdur",
+      "q3Hint": "50 ton həddi Aİ-dəki idxalçı üzrə illik cəmi xalis kütləyə tətbiq olunur",
+      "q3NoThreshold": "Elektrik enerjisi və hidrogen üçün 50 ton həddi tətbiq olunmur",
+      "exportVolume": "İllik ixrac həcmi, ton",
+      "exportDefault": "Nümunə dəyər: son 12 ayın istehsalının {pct} hissəsi",
+      "yes": "Bəli",
+      "no": "Xeyr",
+      "notApplicable": "Tətbiq olunmur",
+      "verdict": {
+        "not_covered": "Məhsul CBAM əhatəsində deyil. Hazırda CBAM öhdəliyi yaranmır.",
+        "no_eu_export": "Məhsul əhatədədir, amma Aİ-yə ixrac olunmur. CBAM öhdəliyi yaranmır.",
+        "below_threshold": "İxrac 50 ton həddindən azdır. İdxalçı bu il üçün azad ola bilər.",
+        "liable": "Məhsul CBAM əhatəsindədir. Aİ-dəki idxalçı daxil edilmiş emissiyanı bəyan etməli və CBAM sertifikatı almalıdır."
+      }
+    },
+    "group": {
+      "cement": "Sement",
+      "iron_steel": "Dəmir və polad",
+      "aluminium": "Alüminium",
+      "fertilisers": "Gübrələr",
+      "electricity": "Elektrik enerjisi",
+      "hydrogen": "Hidrogen",
+      "plastics": "Plastik məmulatlar (bu zavod)",
+      "other": "Digər"
+    },
+    "embedded": {
+      "title": "Daxil edilmiş emissiya hesablayıcısı",
+      "subtitle": "Son 12 ayın zavod məlumatı əsasında ({tons} məhsul)",
+      "unitMass": "Məhsul vahidinin kütləsi, kq",
+      "unitMassHint": "Məsələn, bir boru və ya qablaşdırma vahidi",
+      "perTon": "Ton məhsula",
+      "perUnit": "Bir vahidə",
+      "direct": "Birbaşa (Scope 1)",
+      "indirect": "Dolayı (Scope 2)",
+      "total": "Cəmi",
+      "basisNote": "Dəmir və polad, alüminium, hidrogen və elektrik üçün yalnız birbaşa emissiyalar, sement və gübrələr üçün dolayı emissiyalar da nəzərə alınır.",
+      "allocationNote": "Zavod səviyyəsində orta göstəricidir. Rəsmi hesabat üçün emissiyalar məhsul və istehsal prosesi üzrə bölüşdürülməlidir."
+    },
+    "cost": {
+      "title": "Təxmini CBAM xərci ssenarisi",
+      "subtitle": "İxrac həcmi və Aİ ETS qiymətinə görə illik təxmin",
+      "hypothetical": "Məhsul hazırda əhatədə deyil. Rəqəmlər əhatəyə düşsəydi nə olacağını göstərir.",
+      "etsPrice": "Aİ ETS qiyməti, avro/t CO₂",
+      "etsHint": "Parametrlərdəki dəyər {value}",
+      "domesticPrice": "Mənşə ölkəsində ödənilmiş karbon qiyməti, avro/t CO₂",
+      "basis": "Emissiya əsası",
+      "basisDirect": "Yalnız birbaşa",
+      "basisTotal": "Birbaşa və dolayı",
+      "embeddedTotal": "Daxil edilmiş emissiya",
+      "costEur": "Təxmini xərc, avro",
+      "costAzn": "Təxmini xərc",
+      "perTon": "Ton məhsula",
+      "rate": "Məzənnə 1 avro = {value}",
+      "upperNote": "Hesablama Aİ ETS pulsuz kvota düzəlişini çıxmır (bu düzəliş 2026-cı ildən 2034-cü ilə qədər tədricən azalır), ona görə ən yüksək təxmindir.",
+      "avro": "{value} avro"
+    }
+  },
+  "states": {
+    "loading": "Karbon göstəriciləri hesablanır"
+  }
 }

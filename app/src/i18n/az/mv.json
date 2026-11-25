@@ -1,4 +1,126 @@
 {
   "title": "Qənaət və yoxlama",
-  "subtitle": "Tətbiq olunmuş tədbirlərin ölçülmüş nəticəsi (IPMVP)"
+  "subtitle": "Tətbiq olunmuş tədbirlərin ölçülmüş nəticəsi, IPMVP yanaşması ilə",
+  "kpi": {
+    "verifiedAzn": "Təsdiqlənmiş qənaət",
+    "verifiedAznHint": "{count} tədbir üzrə, hesabat dövrləri ərzində",
+    "verifiedKwh": "Qarşısı alınmış enerji",
+    "verifiedKwhHint": "Gözlənilənin {value} hissəsi",
+    "co2": "Qarşısı alınmış CO₂",
+    "co2Hint": "Scope 2, şəbəkə əmsalı ilə",
+    "monthly": "Aylıq qənaət tempi",
+    "monthlyHint": "İnvestisiya {investment}, geri qaytarma {payback}",
+    "paybackMonths": "{value} ay",
+    "paybackNone": "investisiyasız",
+    "measures": "Tədbirlər",
+    "measuresHint": "{verified} təsdiqləndi, {below} gözləniləndən az, {measuring} ölçülür",
+    "preliminary": "Ölçülən tədbirlərin ilkin nəticəsi {value}, cəmə daxil deyil"
+  },
+  "cumulative": {
+    "title": "Kumulyativ təsdiqlənmiş qənaət",
+    "subtitle": "Hər tədbirin hesabat dövründə qarşısı alınmış enerji, aylar üzrə toplanan",
+    "summary": "Cəmi {value}",
+    "azn": "AZN",
+    "mwh": "MVt·saat",
+    "unit": "Vahid",
+    "month": "Ay",
+    "total": "Cəmi",
+    "preliminary": "ilkin"
+  },
+  "method": {
+    "title": "Qənaət necə yoxlanılır",
+    "formula": "Qarşısı alınmış enerji = düzəldilmiş baza xətti − faktiki sərfiyyat",
+    "adjusted": "Düzəldilmiş baza xətti tədbirdən əvvəlki {days} günün modelidir (E = a + b·ton + c·CDD + d·HDD + e·saat), hesabat dövrünün istehsalı və havası ilə yenidən hesablanır.",
+    "why": "Bu yanaşma \"qənaət hava soyuduğu üçün deyil, tədbir sayəsində əldə edilib\" sualına cavab verir: istehsal və hava dəyişikliyinin təsiri baza xəttinə daxil edilir.",
+    "optionB": "Option B: tədbirin öz sayğacları (avadanlıq səviyyəsində).",
+    "optionC": "Option C: bütün obyektin sayğacı.",
+    "rules": "Tətbiqdən sonra {settle} gün sabitləşmə dövrü çıxılır. Ən azı {min} gün ölçüldükdən sonra qənaət gözlənilənin {share} və daha çoxudursa \"Təsdiqləndi\", azdırsa \"Gözləniləndən az\" statusu verilir. Etibar intervalı {conf} səviyyəsindədir."
+  },
+  "table": {
+    "title": "Tətbiq olunmuş tədbirlər",
+    "subtitle": "Gözlənilən və təsdiqlənmiş qənaət, etibar intervalı, metod və status",
+    "measure": "Tədbir",
+    "implemented": "Tətbiq tarixi",
+    "method": "Metod",
+    "expected": "Gözlənilən",
+    "verified": "Təsdiqlənmiş",
+    "ci": "Etibar intervalı",
+    "status": "Status",
+    "details": "Ətraflı",
+    "detailsAria": "{name} tədbirinin detalları",
+    "option": "Option {value}",
+    "pct": "{value} qənaət",
+    "ciValue": "±{value}",
+    "selected": "Seçilib",
+    "empty": "Hələ tətbiq olunmuş tədbir yoxdur",
+    "emptyBody": "Tövsiyəni təsdiqləyib tətbiq etdikdən sonra nəticə burada ölçülür.",
+    "emptyAction": "AI Qərar Mərkəzinə keçin"
+  },
+  "detail": {
+    "aria": "Tədbirin detalları",
+    "equipment": "Avadanlıq: {list}",
+    "investment": "İnvestisiya {value}",
+    "noInvestment": "İnvestisiya tələb etməyib",
+    "optionLabel": "Ölçmə metodu",
+    "optionB": "Option B, avadanlıq",
+    "optionC": "Option C, bütün obyekt",
+    "baselinePeriod": "Baza dövrü",
+    "reportingPeriod": "Hesabat dövrü",
+    "periodValue": "{range}, {days} gün",
+    "settle": "Aradakı {days} gün sabitləşmə dövrüdür və hesablamaya daxil edilmir.",
+    "chart": {
+      "title": "Düzəldilmiş baza xətti və faktiki sərfiyyat",
+      "summary": "Hesabat dövründə düzəldilmiş baza xətti {adjusted}, faktiki {actual}, qarşısı alınmış enerji {avoided}",
+      "date": "Tarix",
+      "period": "Dövr",
+      "actual": "Faktiki",
+      "fitted": "Baza modeli",
+      "adjusted": "Düzəldilmiş baza xətti",
+      "avoided": "Qarşısı alınmış enerji",
+      "implemented": "Tətbiq",
+      "perDay": "gündə",
+      "weekly": "Həftəlik",
+      "daily": "Günlük"
+    },
+    "result": {
+      "title": "Nəticə",
+      "avoided": "Qarşısı alınmış enerji",
+      "range": "90% etibarla {low} ilə {high} arası",
+      "saving": "Qənaət",
+      "savingValue": "{actual} (gözlənilən {expected})",
+      "money": "Dəyəri",
+      "perMonth": "Aylıq temp",
+      "co2": "CO₂",
+      "achieved": "Gözlənilənin {value} hissəsi",
+      "notSignificant": "Qənaət etibar intervalından kiçikdir, nəticə hələ statistik olaraq etibarlı deyil."
+    },
+    "adjust": {
+      "title": "Düzəlişlərin izahı",
+      "production": "İstehsal",
+      "productionValue": "{pct}: baza dövründə {from}, hesabat dövründə {to} gündə",
+      "weather": "Hava",
+      "weatherValue": "{delta}: baza dövründə orta {from}, hesabat dövründə {to}",
+      "naive": "Sadə əvvəl və sonra müqayisəsi",
+      "routine": "İstehsal və hava düzəlişi",
+      "avoided": "Tədbirin təsiri (IPMVP)",
+      "unadjusted": "Baza dövrünün orta sərfiyyatı, hesabat günlərinə",
+      "conclusionUp": "İstehsal və hava şəraiti hesabat dövründə sərfiyyatı {routine} artırmalı idi. Sadə müqayisə {naive} qənaət göstərərdi, tədbirin real təsiri isə {avoided} təşkil edir.",
+      "conclusionDown": "İstehsal və hava şəraiti hesabat dövründə sərfiyyatı {routine} azaltmalı idi. Sadə müqayisə {naive} qənaət göstərərdi, amma bunun bir hissəsi şəraitin hesabınadır. Tədbirin real təsiri {avoided} təşkil edir."
+    },
+    "model": {
+      "title": "Model keyfiyyəti",
+      "r2": "R²",
+      "cv": "CV(RMSE)",
+      "n": "Müşahidə",
+      "nValue": "{value} gün",
+      "equation": "Model: E = {a} + {b}·ton + {c}·CDD + {d}·HDD + {e}·saat",
+      "good": "Model etibarlıdır: CV(RMSE) {limit} həddindən aşağıdır.",
+      "low": "Model etibarlılığı aşağıdır, daha çox məlumat lazımdır. CV(RMSE) {limit} həddindən yuxarıdır.",
+      "boundaryLow": "Gözlənilən qənaət ölçmə sərhədinin sərfiyyatının cəmi {value} hissəsidir. IPMVP Option C adətən qənaət obyekt sərfiyyatının təxminən 10%-dən çox olduqda tövsiyə edir, bu tədbir üçün Option B daha uyğundur.",
+      "optionCNote": "Option C bütün obyektdəki dəyişiklikləri (başqa tədbirlər, yeni israf halları) birlikdə ölçür."
+    }
+  },
+  "states": {
+    "loading": "M&V nəticələri hesablanır"
+  }
 }
