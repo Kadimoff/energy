@@ -57,12 +57,9 @@ function RangeSelector({ compact }: { compact?: boolean }) {
       <DropdownMenu>
         <PopoverAnchor asChild>
           <DropdownMenuTrigger asChild>
-            <Button
-              variant="secondary"
-              size="sm"
-              aria-label={`${t('topbar.range')}: ${t(`common:range.${preset}`)}`}
-            >
+            <Button variant="secondary" size="sm">
               <CalendarDays aria-hidden="true" />
+              <span className="sr-only">{t('topbar.range')}: </span>
               <span>{t(`common:range.${preset}`)}</span>
               {!compact && resolved && (
                 <span className="hidden font-normal text-ink-3 xl:inline">
@@ -136,13 +133,10 @@ function RoleSelector() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button
-          variant="secondary"
-          size="sm"
-          aria-label={`${t('topbar.roleLabel')}: ${t(`common:role.${role}`)}`}
-        >
+        <Button variant="secondary" size="sm">
           <UserRound aria-hidden="true" />
-          <span className="max-md:hidden">{t(`common:role.${role}`)}</span>
+          <span className="sr-only">{t('topbar.roleLabel')}: </span>
+          <span className="max-md:sr-only">{t(`common:role.${role}`)}</span>
           <ChevronDown className="text-ink-3" aria-hidden="true" />
         </Button>
       </DropdownMenuTrigger>
@@ -265,11 +259,10 @@ function SearchButton() {
       size="sm"
       onClick={() => setOpen(true)}
       aria-keyshortcuts="Control+K Meta+K"
-      aria-label={`${t('command.open')} (${t('command.shortcut')})`}
       className="max-lg:size-9 max-lg:px-0 lg:border lg:border-border lg:bg-surface lg:text-ink-3"
     >
       <Search className="!size-[18px] lg:!size-4" aria-hidden="true" />
-      <span className="hidden lg:inline">{t('command.open')}</span>
+      <span className="max-lg:sr-only">{t('command.open')}</span>
       <kbd className="ml-2 hidden rounded-[5px] border border-border bg-bg-subtle px-1.5 py-0.5 font-sans text-[10px] font-semibold text-ink-3 xl:inline">
         {t('command.shortcut')}
       </kbd>

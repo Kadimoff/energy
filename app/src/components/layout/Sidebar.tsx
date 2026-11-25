@@ -60,13 +60,6 @@ export function Sidebar() {
               <NavLink
                 to={item.path}
                 end={item.path === '/'}
-                aria-label={
-                  badge
-                    ? `${label}, ${t('nav.pendingBadge', { count: badge })}`
-                    : iconOnly
-                      ? label
-                      : undefined
-                }
                 className={({ isActive }) =>
                   cn(
                     'relative flex h-10 items-center gap-3 rounded-sm px-3 text-sm font-medium transition-colors duration-180',
@@ -87,9 +80,12 @@ export function Sidebar() {
                       strokeWidth={1.75}
                       aria-hidden="true"
                     />
-                    <span className="truncate max-lg:hidden group-data-[collapsed=true]/sb:hidden">
+                    <span className="truncate max-lg:sr-only group-data-[collapsed=true]/sb:sr-only">
                       {label}
                     </span>
+                    {badge !== null && (
+                      <span className="sr-only">, {t('nav.pendingBadge', { count: badge })}</span>
+                    )}
                     {badge !== null && (
                       <span
                         aria-hidden="true"

@@ -43,7 +43,7 @@ describe('M&V page', () => {
     // open another measure (mobile list and desktop table both render in jsdom)
     await userEvent.click(
       screen.getAllByRole('button', {
-        name: /Sex işıqlandırmasının LED-ə keçirilməsi tədbirinin detalları/,
+        name: /Ətraflı: Sex işıqlandırmasının LED-ə keçirilməsi/,
       })[0],
     );
     expect(

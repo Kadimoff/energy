@@ -47,7 +47,7 @@
     "ci": "Etibar intervalı",
     "status": "Status",
     "details": "Ətraflı",
-    "detailsAria": "{name} tədbirinin detalları",
+    "detailsAria": "Ətraflı: {name}",
     "option": "Option {value}",
     "pct": "{value} qənaət",
     "ciValue": "±{value}",

@@ -228,17 +228,17 @@ export function PlantSchematic({ workshops, onOpen, ariaLabel, className }: Plan
                     strokeWidth={1.75}
                     aria-hidden="true"
                   />
-                  <text x={x + 30} y={y + 21} fontSize={12.5} fontWeight={600} fill="var(--text)">
+                  <text aria-hidden="true" x={x + 30} y={y + 21} fontSize={12.5} fontWeight={600} fill="var(--text)">
                     {it.equipment.code}
                   </text>
                   {Number.isNaN(it.kw) ? (
-                    <text x={x + 10} y={y + 46} fill={m.text} className="tabular-nums">
+                    <text aria-hidden="true" x={x + 10} y={y + 46} fill={m.text} className="tabular-nums">
                       <tspan fontSize={14} fontWeight={600}>
                         {formatTime(it.lastSeen)}
                       </tspan>
                     </text>
                   ) : (
-                    <text x={x + 10} y={y + 46} fill="var(--text)" className="tabular-nums">
+                    <text aria-hidden="true" x={x + 10} y={y + 46} fill="var(--text)" className="tabular-nums">
                       <tspan fontSize={17} fontWeight={600}>
                         {formatNumber(it.kw, !gas && it.kw < 10 ? 1 : 0)}
                       </tspan>
@@ -247,7 +247,7 @@ export function PlantSchematic({ workshops, onOpen, ariaLabel, className }: Plan
                       </tspan>
                     </text>
                   )}
-                  <text x={x + 10} y={y + 64} fontSize={11.5} fontWeight={500} fill={m.text}>
+                  <text aria-hidden="true" x={x + 10} y={y + 64} fontSize={11.5} fontWeight={500} fill={m.text}>
                     {statusText}
                   </text>
                 </g>
