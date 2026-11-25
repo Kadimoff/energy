@@ -260,7 +260,7 @@ export function ActualVsOptimalChart({
           </Table>
         </div>
       ) : (
-        <figure
+        <div
           role="img"
           aria-label={`${title}. ${range}.${ariaSummary ? ` ${ariaSummary}` : ''}`}
           className="m-0"
@@ -450,7 +450,7 @@ export function ActualVsOptimalChart({
               </ComposedChart>
             </ResponsiveContainer>
           )}
-        </figure>
+        </div>
       )}
 
       {!asTable && (

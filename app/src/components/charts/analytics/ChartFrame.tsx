@@ -118,14 +118,14 @@ export function ChartFrame({
           </Table>
         </div>
       ) : (
-        <figure
+        <div
           role="img"
           aria-label={summary ? `${title}. ${summary}` : title}
           className="m-0 min-w-0"
           style={autoHeight ? undefined : { height }}
         >
           {children}
-        </figure>
+        </div>
       )}
       {!asTable && legend && legend.length > 0 && (
         <ul

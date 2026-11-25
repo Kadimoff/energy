@@ -10,9 +10,16 @@ import { analyze } from '../../domain/analysis';
  */
 self.onmessage = (e: MessageEvent<{ now: number }>) => {
   try {
+    const t0 = performance.now();
     const ds = generateDataset({ now: e.data.now, config: baseConfig });
+    const t1 = performance.now();
     const analysis = analyze(ds, baseConfig);
-    self.postMessage({ ok: true, analysis });
+    const t2 = performance.now();
+    self.postMessage({
+      ok: true,
+      analysis,
+      timings: { generateMs: t1 - t0, analyzeMs: t2 - t1 },
+    });
   } catch (err) {
     self.postMessage({ ok: false, error: String(err) });
   }

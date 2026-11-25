@@ -94,7 +94,7 @@ export function LoadHistogram({ bins, profile, name, className }: LoadHistogramP
           </Table>
         </div>
       ) : (
-        <figure role="img" aria-label={aria} className="m-0">
+        <div role="img" aria-label={aria} className="m-0">
           <div
             className="flex h-40 items-end gap-1.5 border-b border-border-strong"
             aria-hidden="true"
@@ -134,7 +134,7 @@ export function LoadHistogram({ bins, profile, name, className }: LoadHistogramP
             ))}
           </div>
           <figcaption className="mt-1 text-xs text-ink-3">{t('hist.rangeHead')}, %</figcaption>
-        </figure>
+        </div>
       )}
     </div>
   );

@@ -1,20 +1,21 @@
 import { lazy } from 'react';
 import { createBrowserRouter, Navigate, type RouteObject } from 'react-router-dom';
 import { AppShell, type RouteHandle } from '@/components/layout/AppShell';
+import { pageChunks } from './routeChunks';
 
 /** Each page is its own lazy chunk in src/pages/<area>/ (page agents own their folder). */
-const OverviewPage = lazy(() => import('@/pages/overview'));
-const LivePage = lazy(() => import('@/pages/live'));
-const EquipmentPage = lazy(() => import('@/pages/equipment'));
-const EquipmentDetailPage = lazy(() => import('@/pages/equipment/detail'));
-const DecisionsPage = lazy(() => import('@/pages/decisions'));
-const AnomaliesPage = lazy(() => import('@/pages/anomalies'));
-const ForecastPage = lazy(() => import('@/pages/forecast'));
-const CarbonPage = lazy(() => import('@/pages/carbon'));
-const MvPage = lazy(() => import('@/pages/mv'));
-const ReportsPage = lazy(() => import('@/pages/reports'));
-const SettingsPage = lazy(() => import('@/pages/settings'));
-const ShowcasePage = lazy(() => import('@/pages/_showcase'));
+const OverviewPage = lazy(pageChunks.overview);
+const LivePage = lazy(pageChunks.live);
+const EquipmentPage = lazy(pageChunks.equipment);
+const EquipmentDetailPage = lazy(pageChunks.equipmentDetail);
+const DecisionsPage = lazy(pageChunks.decisions);
+const AnomaliesPage = lazy(pageChunks.anomalies);
+const ForecastPage = lazy(pageChunks.forecast);
+const CarbonPage = lazy(pageChunks.carbon);
+const MvPage = lazy(pageChunks.mv);
+const ReportsPage = lazy(pageChunks.reports);
+const SettingsPage = lazy(pageChunks.settings);
+const ShowcasePage = lazy(pageChunks.showcase);
 
 const h = (titleKey: string): RouteHandle => ({ titleKey });
 

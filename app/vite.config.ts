@@ -18,17 +18,21 @@ export default defineConfig({
     chunkSizeWarningLimit: 700,
     rollupOptions: {
       output: {
-        manualChunks: {
-          react: ['react', 'react-dom', 'react-router-dom'],
-          charts: ['recharts'],
-          radix: [
-            '@radix-ui/react-dialog',
-            '@radix-ui/react-tooltip',
-            '@radix-ui/react-tabs',
-            '@radix-ui/react-select',
-            '@radix-ui/react-dropdown-menu',
-            '@radix-ui/react-popover',
-          ],
+        // Function form: the object form also pulls shared deps (clsx, ...) into
+        // "charts", which made the entry chunk import and preload all of recharts.
+        manualChunks(id: string) {
+          if (!id.includes('/node_modules/')) return undefined;
+          if (/\/node_modules\/(react|react-dom|scheduler|react-router|react-router-dom|@remix-run|clsx|use-sync-external-store)\//.test(id))
+            return 'react';
+          if (
+            /\/node_modules\/(recharts|victory-vendor|d3-[^/]+|internmap|@reduxjs|redux|react-redux|redux-thunk|reselect|immer|decimal\.js-light|es-toolkit|eventemitter3|tiny-invariant)\//.test(
+              id,
+            )
+          )
+            return 'charts';
+          if (/\/node_modules\/(@radix-ui|@floating-ui|react-remove-scroll|react-remove-scroll-bar|react-style-singleton|use-callback-ref|use-sidecar|aria-hidden|get-nonce|detect-node-es)\//.test(id))
+            return 'radix';
+          return undefined;
         },
       },
     },

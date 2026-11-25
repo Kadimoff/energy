@@ -19,10 +19,15 @@ export const TabsList = React.forwardRef<
 ));
 TabsList.displayName = 'TabsList';
 
+/**
+ * The app uses tabs as segmented controls (view/horizon switches) without
+ * Radix TabsContent panels, so the generated aria-controls would point to a
+ * missing id (axe: aria-valid-attr-value). It is dropped unless set explicitly.
+ */
 export const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
->(({ className, ...props }, ref) => (
+>(({ className, 'aria-controls': controls, ...props }, ref) => (
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
@@ -30,6 +35,7 @@ export const TabsTrigger = React.forwardRef<
       className,
     )}
     {...props}
+    aria-controls={controls}
   />
 ));
 TabsTrigger.displayName = 'TabsTrigger';

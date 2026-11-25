@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { DeferredSection } from '@/components/common/DeferredSection';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import type { ForecastHorizon } from '@/domain/analytics/forecastView';
@@ -30,9 +31,16 @@ export default function ForecastPage() {
       />
       <div className="space-y-6">
         <ForecastHero horizon={horizon} />
-        <Simulator input={scenario} onChange={setScenario} />
-        <ScenarioCompare current={scenario} onLoad={(s) => setScenario({ ...s })} />
-        <PeakPlanner />
+        {/* below the fold on desktop: rendered after the first paint (TBT) */}
+        <DeferredSection minHeight={640}>
+          <Simulator input={scenario} onChange={setScenario} />
+        </DeferredSection>
+        <DeferredSection minHeight={420}>
+          <ScenarioCompare current={scenario} onLoad={(s) => setScenario({ ...s })} />
+        </DeferredSection>
+        <DeferredSection minHeight={560}>
+          <PeakPlanner />
+        </DeferredSection>
       </div>
     </>
   );

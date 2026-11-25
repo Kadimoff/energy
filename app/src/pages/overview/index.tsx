@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { DecisionNotice } from '@/components/ai/decision/DecisionNotice';
 import { ActualVsOptimalChart } from '@/components/charts/ActualVsOptimalChart';
+import { DeferredSection } from '@/components/common/DeferredSection';
 import { ChartSkeleton } from '@/components/common/Skeletons';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -164,8 +165,15 @@ export default function OverviewPage() {
         <KpiRow ov={ov} hero={hero} order={layout.kpis} />
       </div>
       <div className="mt-6 space-y-6">
-        {layout.sections.map((s) => (
-          <div key={s}>{sections[s]}</div>
+        {layout.sections.map((s, i) => (
+          <div key={s}>
+            {i === 0 ? (
+              sections[s]
+            ) : (
+              // later sections are below the fold: rendered after the first paint
+              <DeferredSection minHeight={s === 'anomalies' ? 260 : 420}>{sections[s]}</DeferredSection>
+            )}
+          </div>
         ))}
       </div>
       <DecisionNotice />

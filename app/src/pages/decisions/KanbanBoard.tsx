@@ -71,12 +71,12 @@ export function KanbanBoard({
             key={c}
             className="flex w-[270px] shrink-0 snap-start flex-col rounded-card bg-bg-subtle p-2.5 ring-1 ring-inset ring-border xl:w-auto"
           >
-            <h3 className="flex items-center gap-2 px-1.5 pb-2.5 pt-1 text-13 font-semibold text-ink">
+            <h2 className="flex items-center gap-2 px-1.5 pb-2.5 pt-1 text-13 font-semibold text-ink">
               {tx(`common:recStatus.${c}`)}
               <span className="ml-auto rounded-full bg-surface px-1.5 text-xs tabular-nums text-ink-2 ring-1 ring-border">
                 {cols[c].length}
               </span>
-            </h3>
+            </h2>
             {cols[c].length ? (
               <ul className="space-y-2">
                 {cols[c].map((v) => (

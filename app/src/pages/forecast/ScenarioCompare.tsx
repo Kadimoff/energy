@@ -1,5 +1,5 @@
 import { FolderOpen, GitCompare, Trash2 } from 'lucide-react';
-import { useDeferredValue, useMemo, useState } from 'react';
+import { useDeferredValue, useId, useMemo, useState } from 'react';
 import { EmptyState } from '@/components/common/EmptyState';
 import { TableSkeleton } from '@/components/common/Skeletons';
 import { Button } from '@/components/ui/button';
@@ -83,13 +83,14 @@ export function ScenarioCompare({
   const resB = useScenario(optB.input);
   const rows = resA && resB ? compareOutcomes(resA.scenario, resB.scenario) : null;
 
-  const picker = (value: string, onValue: (v: string) => void, label: string) => (
+  const uid = useId();
+  const picker = (value: string, onValue: (v: string) => void, label: string, key: 'a' | 'b') => (
     <div className="min-w-0 flex-1 space-y-1.5">
-      <p className="text-xs font-medium text-ink-2" id={`cmp-${label}`}>
+      <p className="text-xs font-medium text-ink-2" id={`${uid}-cmp-${key}`}>
         {label}
       </p>
       <Select value={value} onValueChange={onValue}>
-        <SelectTrigger aria-labelledby={`cmp-${label}`}>
+        <SelectTrigger aria-labelledby={`${uid}-cmp-${key}`}>
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
@@ -165,8 +166,8 @@ export function ScenarioCompare({
             {t('saved.compare')}
           </h3>
           <div className="mt-3 flex flex-col gap-3 sm:flex-row">
-            {picker(a, setA, t('saved.compareA'))}
-            {picker(b, setB, t('saved.compareB'))}
+            {picker(a, setA, t('saved.compareA'), 'a')}
+            {picker(b, setB, t('saved.compareB'), 'b')}
           </div>
           {!rows ? (
             <TableSkeleton rows={5} cols={4} className="mt-4" />

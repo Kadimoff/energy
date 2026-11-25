@@ -96,7 +96,7 @@ export function LivePowerChart({ series, height = 240, className }: LivePowerCha
           </Table>
         </div>
       ) : (
-        <figure role="img" aria-label={aria} className="m-0" style={{ height }}>
+        <div role="img" aria-label={aria} className="m-0" style={{ height }}>
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={points} margin={{ top: 8, right: 8, bottom: 0, left: 0 }}>
               <CartesianGrid vertical={false} stroke="var(--border)" />
@@ -153,7 +153,7 @@ export function LivePowerChart({ series, height = 240, className }: LivePowerCha
               />
             </LineChart>
           </ResponsiveContainer>
-        </figure>
+        </div>
       )}
     </div>
   );

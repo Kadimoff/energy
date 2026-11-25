@@ -54,7 +54,7 @@ export function CarbonMini({ snap, pendingT }: { snap?: CarbonSnapshot; pendingT
       <CardContent>
         <div className="grid items-center gap-x-10 gap-y-5 md:grid-cols-2 xl:grid-cols-1">
           <div className="flex items-center gap-5">
-            <figure
+            <div
               className="relative m-0 size-[112px] shrink-0"
               role="img"
               aria-label={`${t('carbon.donut')}: ${items.map((i) => `${i.label} ${formatTCo2(i.value, 0)}`).join(', ')}`}
@@ -84,7 +84,7 @@ export function CarbonMini({ snap, pendingT }: { snap?: CarbonSnapshot; pendingT
                 </span>
                 <span className="mt-1 text-[11px] leading-none text-ink-3">t CO₂e</span>
               </figcaption>
-            </figure>
+            </div>
             <ul className="min-w-0 flex-1 space-y-2.5">
               {items.map((i) => (
                 <li key={i.key} className="text-13">

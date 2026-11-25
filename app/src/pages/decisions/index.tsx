@@ -23,6 +23,10 @@ import { DecisionFilters } from './DecisionFilters';
 import { DecisionSummary } from './DecisionSummary';
 import { KanbanBoard } from './KanbanBoard';
 import { PriorityMatrix } from './PriorityMatrix';
+import { DeferredSection } from '@/components/common/DeferredSection';
+
+/** cards rendered with the page; the rest follows after the first paint */
+const FIRST_CARDS = 3;
 
 type View = 'list' | 'kanban';
 
@@ -63,6 +67,15 @@ export default function DecisionsPage() {
     if (!el) return;
     el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
   }, [focusId, view, recs, reduce]);
+
+  const card = (v: (typeof list)[number]) => (
+    <DecisionCard
+      key={v.id}
+      rec={v}
+      highlighted={v.id === focusId}
+      defaultWhyOpen={v.id === focusId}
+    />
+  );
 
   return (
     <>
@@ -129,7 +142,10 @@ export default function DecisionsPage() {
         </div>
       ) : (
         <div className="mt-5 grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
-          <section aria-label={t('list.title')} className="min-w-0 space-y-4">
+          <section aria-labelledby="decisions-list-title" className="min-w-0 space-y-4">
+            <h2 id="decisions-list-title" className="sr-only">
+              {t('list.title')}
+            </h2>
             {!recs ? (
               <TableSkeleton rows={5} />
             ) : list.length === 0 ? (
@@ -141,14 +157,15 @@ export default function DecisionsPage() {
                 />
               </Card>
             ) : (
-              list.map((v) => (
-                <DecisionCard
-                  key={v.id}
-                  rec={v}
-                  highlighted={v.id === focusId}
-                  defaultWhyOpen={v.id === focusId}
-                />
-              ))
+              <>
+                {list.slice(0, focusId ? list.length : FIRST_CARDS).map(card)}
+                {!focusId && list.length > FIRST_CARDS && (
+                  // the rest is below the fold: rendered after the first paint
+                  <DeferredSection minHeight={(list.length - FIRST_CARDS) * 236}>
+                    <div className="space-y-4">{list.slice(FIRST_CARDS).map(card)}</div>
+                  </DeferredSection>
+                )}
+              </>
             )}
           </section>
           <aside className="order-first xl:order-none" aria-label={t('matrix.title')}>

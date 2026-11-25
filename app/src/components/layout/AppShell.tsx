@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from 'react';
+import { lazy, Suspense, useDeferredValue, useEffect, useState } from 'react';
 import { Outlet, useMatches } from 'react-router-dom';
 import { CopilotPanel } from '@/components/ai/CopilotPanel';
 import { ErrorState } from '@/components/common/ErrorState';
@@ -32,6 +32,9 @@ export function AppShell() {
   const [paletteLoaded, setPaletteLoaded] = useState(false);
   if (commandOpen && !paletteLoaded) setPaletteLoaded(true);
   const analysis = useAnalysis();
+  // the first page render with data is large: run it as a deferred (time-sliced)
+  // render so it does not block input as one long task
+  const ready = useDeferredValue(!!analysis.data);
 
   useEffect(() => {
     document.title = `${title} · ${t('common:app.name')}`;
@@ -72,11 +75,15 @@ export function AppShell() {
         <main
           id="main"
           tabIndex={-1}
-          className="flex-1 px-4 pb-8 pt-6 outline-none md:px-6 md:pb-10 lg:px-8 lg:pt-8"
+          className="min-h-[calc(100vh-var(--topbar-h))] flex-1 px-4 pb-8 pt-6 outline-none md:px-6 md:pb-10 lg:px-8 lg:pt-8"
         >
           <div className="mx-auto w-full max-w-[1440px]">
             {analysis.isError ? (
               <ErrorState onRetry={() => void analysis.refetch()} />
+            ) : !ready || !analysis.data ? (
+              // pages mount once the analysis is ready, so their content replaces the
+              // skeleton in one step instead of shifting piece by piece (CLS)
+              <PageSkeleton />
             ) : (
               <Suspense fallback={<PageSkeleton />}>
                 <Outlet />
