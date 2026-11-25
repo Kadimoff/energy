@@ -1,0 +1,7 @@
+**/node_modules
+**/dist
+**/coverage
+shots
+.git
+deploy/Dockerfile.inline
+deploy/.app_uuid

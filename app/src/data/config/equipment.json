@@ -1,0 +1,202 @@
+[
+  {
+    "id": "comp-1",
+    "code": "K-1",
+    "name": "K-1 kompressoru",
+    "type": "Vintli hava kompressoru",
+    "group": "compressed_air",
+    "workshop": "compressor_room",
+    "energy": "electricity",
+    "nominal": 90
+  },
+  {
+    "id": "comp-2",
+    "code": "K-2",
+    "name": "K-2 kompressoru",
+    "type": "Vintli hava kompressoru",
+    "group": "compressed_air",
+    "workshop": "compressor_room",
+    "energy": "electricity",
+    "nominal": 90
+  },
+  {
+    "id": "comp-3",
+    "code": "K-3",
+    "name": "K-3 kompressoru",
+    "type": "Vintli hava kompressoru",
+    "group": "compressed_air",
+    "workshop": "compressor_room",
+    "energy": "electricity",
+    "nominal": 55
+  },
+  {
+    "id": "chiller-1",
+    "code": "Çiller-1",
+    "name": "Çiller-1",
+    "type": "Su soyuducu çiller",
+    "group": "cooling",
+    "workshop": "cooling_station",
+    "energy": "electricity",
+    "nominal": 180
+  },
+  {
+    "id": "chiller-2",
+    "code": "Çiller-2",
+    "name": "Çiller-2",
+    "type": "Su soyuducu çiller",
+    "group": "cooling",
+    "workshop": "cooling_station",
+    "energy": "electricity",
+    "nominal": 180
+  },
+  {
+    "id": "ct-pumps",
+    "code": "SQ-N",
+    "name": "Soyutma qülləsi nasosları",
+    "type": "Sirkulyasiya nasosları",
+    "group": "cooling",
+    "workshop": "cooling_station",
+    "energy": "electricity",
+    "nominal": 45
+  },
+  {
+    "id": "ext-1",
+    "code": "E-1",
+    "name": "E-1 ekstruziya xətti",
+    "type": "Ekstruziya xətti",
+    "group": "extrusion",
+    "workshop": "extrusion_hall",
+    "energy": "electricity",
+    "nominal": 140
+  },
+  {
+    "id": "ext-2",
+    "code": "E-2",
+    "name": "E-2 ekstruziya xətti",
+    "type": "Ekstruziya xətti",
+    "group": "extrusion",
+    "workshop": "extrusion_hall",
+    "energy": "electricity",
+    "nominal": 150
+  },
+  {
+    "id": "ext-3",
+    "code": "E-3",
+    "name": "E-3 ekstruziya xətti",
+    "type": "Ekstruziya xətti",
+    "group": "extrusion",
+    "workshop": "extrusion_hall",
+    "energy": "electricity",
+    "nominal": 130
+  },
+  {
+    "id": "ext-4",
+    "code": "E-4",
+    "name": "E-4 ekstruziya xətti",
+    "type": "Ekstruziya xətti",
+    "group": "extrusion",
+    "workshop": "extrusion_hall",
+    "energy": "electricity",
+    "nominal": 160
+  },
+  {
+    "id": "im-1",
+    "code": "İM-1",
+    "name": "İM-1 injeksiya maşını",
+    "type": "Injeksiya qəlibləmə maşını",
+    "group": "injection",
+    "workshop": "injection_hall",
+    "energy": "electricity",
+    "nominal": 75
+  },
+  {
+    "id": "im-2",
+    "code": "İM-2",
+    "name": "İM-2 injeksiya maşını",
+    "type": "Injeksiya qəlibləmə maşını",
+    "group": "injection",
+    "workshop": "injection_hall",
+    "energy": "electricity",
+    "nominal": 90
+  },
+  {
+    "id": "im-3",
+    "code": "İM-3",
+    "name": "İM-3 injeksiya maşını",
+    "type": "Injeksiya qəlibləmə maşını",
+    "group": "injection",
+    "workshop": "injection_hall",
+    "energy": "electricity",
+    "nominal": 110
+  },
+  {
+    "id": "ahu-shop",
+    "code": "AHU-S",
+    "name": "Sex havalandırması (AHU)",
+    "type": "Hava emal qurğusu",
+    "group": "hvac",
+    "workshop": "extrusion_hall",
+    "energy": "electricity",
+    "nominal": 55
+  },
+  {
+    "id": "ahu-wh",
+    "code": "AHU-A",
+    "name": "Anbar havalandırması (AHU)",
+    "type": "Hava emal qurğusu",
+    "group": "hvac",
+    "workshop": "warehouse",
+    "energy": "electricity",
+    "nominal": 30
+  },
+  {
+    "id": "light-shop",
+    "code": "İŞ-S",
+    "name": "Sex işıqlandırması",
+    "type": "İşıqlandırma",
+    "group": "lighting",
+    "workshop": "extrusion_hall",
+    "energy": "electricity",
+    "nominal": 40
+  },
+  {
+    "id": "light-wh",
+    "code": "İŞ-A",
+    "name": "Anbar işıqlandırması",
+    "type": "İşıqlandırma",
+    "group": "lighting",
+    "workshop": "warehouse",
+    "energy": "electricity",
+    "nominal": 25
+  },
+  {
+    "id": "light-site",
+    "code": "İŞ-Ə",
+    "name": "Ərazi işıqlandırması",
+    "type": "İşıqlandırma",
+    "group": "lighting",
+    "workshop": "site",
+    "energy": "electricity",
+    "nominal": 15
+  },
+  {
+    "id": "office",
+    "code": "OF",
+    "name": "Ofis və köməkçi sistemlər",
+    "type": "Ofis yükü",
+    "group": "auxiliary",
+    "workshop": "admin",
+    "energy": "electricity",
+    "nominal": 35
+  },
+  {
+    "id": "boiler",
+    "code": "QZ-1",
+    "name": "Qazanxana (buxar qazanı)",
+    "type": "Təbii qaz qazanı",
+    "group": "boiler",
+    "workshop": "boiler_house",
+    "energy": "gas",
+    "nominal": 160
+  }
+]

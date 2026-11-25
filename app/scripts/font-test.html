@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="az"><head><meta charset="utf-8"><title>Şrift testi</title>
+<link rel="stylesheet" href="../node_modules/@fontsource-variable/plus-jakarta-sans/index.css">
+<link rel="stylesheet" href="../node_modules/@fontsource-variable/manrope/index.css">
+<link rel="stylesheet" href="../node_modules/@fontsource-variable/inter/index.css">
+<style>
+body{margin:32px;font:14px system-ui;color:#1B1830;background:#fff}
+.row{display:grid;grid-template-columns:220px 1fr 120px;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid #ECEAF5}
+.s{font-size:36px;font-weight:600}
+.r{font-weight:700}
+.pass{color:#0E9F8E}.fail{color:#D64545}
+small{color:#57536E}
+</style></head><body>
+<h1 style="font-size:20px">Azərbaycan hərfləri testi: Əə Ğğ Iı İi Öö Şş Üü Çç</h1>
+<div id="rows"></div>
+<script>
+const SAMPLE=new URLSearchParams(location.search).get('s')||'Əə Ğğ Iı İi Öö Şş Üü Çç';
+const FONTS=['Plus Jakarta Sans Variable','Manrope Variable','Inter Variable'];
+const rows=document.getElementById('rows');
+for(const f of FONTS){
+  const d=document.createElement('div');d.className='row';
+  d.innerHTML=`<div>${f}<br><small>Enerji sərfiyyatı 57 600 kVt·saat</small></div><div class="s" data-font="${f}" style="font-family:'${f}',monospace">${SAMPLE}</div><div class="r" id="r-${FONTS.indexOf(f)}">…</div>`;
+  rows.appendChild(d);
+}
+window.runTest=async()=>{
+  const out={};
+  for(const f of FONTS){
+    await document.fonts.load(`600 36px "${f}"`, SAMPLE);
+    const c=document.createElement('canvas').getContext('2d');
+    const missing=[];
+    for(const ch of SAMPLE.replace(/ /g,'')){
+      c.font=`600 36px "${f}", monospace`; const a=c.measureText(ch).width;
+      c.font=`600 36px "${f}", serif`; const b=c.measureText(ch).width;
+      if(Math.abs(a-b)>0.01) missing.push(ch);
+    }
+    const check=document.fonts.check(`600 36px "${f}"`, SAMPLE);
+    out[f]={missing,check,pass:missing.length===0};
+    const el=document.getElementById('r-'+FONTS.indexOf(f));
+    el.textContent=missing.length?('Fallback: '+missing.join(' ')):'Keçdi';
+    el.className='r '+(missing.length?'fail':'pass');
+  }
+  return out;
+};
+</script></body></html>

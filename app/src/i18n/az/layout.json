@@ -1,0 +1,61 @@
+{
+  "nav": {
+    "label": "Əsas naviqasiya",
+    "overview": "Ümumi baxış",
+    "live": "Canlı monitorinq",
+    "equipment": "Avadanlıqlar",
+    "decisions": "AI Qərar Mərkəzi",
+    "anomalies": "Anomaliyalar",
+    "forecast": "Proqnoz və ssenarilər",
+    "carbon": "Karbon",
+    "mv": "Qənaət və yoxlama",
+    "reports": "Hesabatlar",
+    "settings": "Parametrlər",
+    "pendingBadge": "{count} gözləyən qərar",
+    "more": "Daha çox"
+  },
+  "sidebar": {
+    "collapse": "Paneli yığ",
+    "expand": "Paneli aç",
+    "plant": "Zavod",
+    "plantSelect": "Zavod seçin",
+    "user": "Aysel Məmmədova",
+    "userRole": "Enerji meneceri",
+    "userMenu": "İstifadəçi menyusu"
+  },
+  "topbar": {
+    "range": "Dövr",
+    "role": "Rol",
+    "roleLabel": "Görünüş rolu",
+    "notifications": "Bildirişlər",
+    "notificationsEmpty": "Yeni bildiriş yoxdur",
+    "notificationsCount": "{count} yeni bildiriş",
+    "copilot": "AI Copilot",
+    "copilotShortcut": "Ctrl K",
+    "live": "Canlı",
+    "liveAria": "Canlı məlumat axını aktivdir",
+    "menu": "Menyu",
+    "customFrom": "Başlanğıc",
+    "customTo": "Son",
+    "apply": "Tətbiq et"
+  },
+  "copilot": {
+    "title": "AI Copilot",
+    "subtitle": "Zavod məlumatı əsasında cavab verir",
+    "close": "Copilot panelini bağla",
+    "placeholder": "Copilot burada olacaq."
+  },
+  "skip": "Əsas məzmuna keç",
+  "navShort": {
+    "overview": "Ümumi",
+    "live": "Canlı",
+    "equipment": "Avadanlıq",
+    "decisions": "Qərarlar",
+    "anomalies": "Anomaliya",
+    "forecast": "Proqnoz",
+    "carbon": "Karbon",
+    "mv": "M&V",
+    "reports": "Hesabat",
+    "settings": "Parametr"
+  }
+}

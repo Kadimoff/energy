@@ -1,0 +1,230 @@
+{
+  "app": {
+    "name": "Smart Industry Energy",
+    "short": "SIE",
+    "tagline": "Yetən qədər enerji"
+  },
+  "footer": {
+    "demo": "Demo versiya. Məlumatlar nümunə üçün yaradılıb."
+  },
+  "actions": {
+    "open": "Aç",
+    "close": "Bağla",
+    "cancel": "Ləğv et",
+    "save": "Yadda saxla",
+    "retry": "Yenidən cəhd et",
+    "more": "Ətraflı",
+    "less": "Gizlət",
+    "viewAll": "Hamısına bax",
+    "approve": "Təsdiqlə",
+    "schedule": "Planla",
+    "reject": "Rədd et",
+    "export": "İxrac et",
+    "reset": "Sıfırla"
+  },
+  "states": {
+    "loading": "Məlumat yüklənir",
+    "loadingAnalysis": "Model hesablanır",
+    "emptyTitle": "Hələ məlumat yoxdur",
+    "errorTitle": "Məlumatı yükləmək alınmadı",
+    "errorBody": "Məlumat mənbəyi cavab vermədi. Bağlantını yoxlayın və yenidən cəhd edin.",
+    "staleTitle": "Köhnə məlumat",
+    "staleBody": "Son yenilənmə {minutes} dəqiqə əvvəl. {name} sayğacı ilə əlaqə yoxdur.",
+    "staleShort": "Son yenilənmə {minutes} dəqiqə əvvəl",
+    "noRecsApproved": "Hələ heç bir tövsiyə təsdiqlənməyib. AI Qərar Mərkəzinə keçin",
+    "placeholder": "Bu bölmə hazırlanır."
+  },
+  "ai": {
+    "badge": "AI",
+    "badgeLabel": "AI tərəfindən hazırlanıb",
+    "confidence": "Etimad",
+    "confidenceHigh": "Yüksək",
+    "confidenceMedium": "Orta",
+    "confidenceLow": "Aşağı, yoxlama tövsiyə olunur",
+    "confidenceAria": "Etimad səviyyəsi {value}%: {level}",
+    "why": "Niyə?",
+    "whyTitle": "Bu nəticə nəyə əsaslanır",
+    "whyData": "İstifadə olunan məlumat",
+    "whyRule": "İşləyən qayda",
+    "whyCompare": "Müqayisə",
+    "thinking": "AI cavab hazırlayır",
+    "suggestionNote": "Bu, təklifdir. Son qərar sizindir."
+  },
+  "chart": {
+    "actual": "Faktiki",
+    "optimal": "Optimal",
+    "optimalBand": "Optimal zolaq",
+    "waste": "İsraf",
+    "forecast": "Proqnoz",
+    "forecastBand": "Proqnoz intervalı (P10–P90)",
+    "budget": "Büdcə",
+    "cumulative": "Toplanan",
+    "daily": "Günlük",
+    "hourly": "Saatlıq",
+    "viewTable": "Cədvəl kimi bax",
+    "viewChart": "Qrafik kimi bax",
+    "date": "Tarix",
+    "time": "Saat",
+    "ariaSummary": "{title}. Dövr: {range}. Faktiki sərfiyyat {actual}, optimal {optimal}, israf {waste}.",
+    "noData": "Seçilmiş dövr üçün məlumat yoxdur",
+    "legend": "Qrafik izahı"
+  },
+  "kpi": {
+    "vsPrevious": "əvvəlki dövrə görə",
+    "noChange": "dəyişiklik yoxdur",
+    "trendUp": "artım",
+    "trendDown": "azalma"
+  },
+  "units": {
+    "perMonth": "/ay",
+    "perYear": "/il",
+    "months": "ay"
+  },
+  "source": {
+    "factor": "Əmsal",
+    "source": "Mənbə",
+    "date": "Tarix",
+    "lastChecked": "Son yoxlama",
+    "verify": "Rəsmi mənbədən yoxlayın",
+    "placeholder": "Yoxlanılmalı",
+    "openSettings": "Parametrlərdə dəyiş"
+  },
+  "group": {
+    "compressed_air": "Sıxılmış hava",
+    "cooling": "Soyutma",
+    "extrusion": "Ekstruziya",
+    "injection": "İnjeksiya",
+    "hvac": "Havalandırma",
+    "lighting": "İşıqlandırma",
+    "auxiliary": "Ofis və köməkçi",
+    "boiler": "Qazanxana",
+    "plant": "Bütün zavod"
+  },
+  "energy": {
+    "electricity": "Elektrik",
+    "gas": "Təbii qaz"
+  },
+  "role": {
+    "director": "Direktor",
+    "energy_manager": "Enerji meneceri",
+    "operator": "Operator"
+  },
+  "range": {
+    "today": "Bu gün",
+    "7d": "7 gün",
+    "month": "Bu ay",
+    "quarter": "Rüb",
+    "year": "İl",
+    "custom": "Xüsusi"
+  },
+  "severity": {
+    "critical": "Kritik",
+    "high": "Yüksək",
+    "medium": "Orta",
+    "low": "Aşağı"
+  },
+  "anomalyStatus": {
+    "open": "Açıq",
+    "investigating": "Araşdırılır",
+    "resolved": "Həll edildi",
+    "false_alarm": "Yanlış xəbərdarlıq"
+  },
+  "rule": {
+    "idle_load": "İstehsalsız saatlarda yük",
+    "baseload_trend": "Baza yükünün artması",
+    "spike": "Ani sıçrayış",
+    "peak_power": "Pik güc",
+    "weather_mismatch": "Hava ilə uyğunsuzluq",
+    "enpi_degradation": "EnPI pisləşməsi"
+  },
+  "recStatus": {
+    "proposed": "Təklif edildi",
+    "approved": "Təsdiqləndi",
+    "scheduled": "Planlaşdırıldı",
+    "in_progress": "Tətbiq olunur",
+    "measuring": "Ölçülür",
+    "verified": "Təsdiqlənmiş qənaət",
+    "rejected": "Rədd edildi"
+  },
+  "effort": {
+    "zero": "Sıfır xərc",
+    "low": "Aşağı xərc",
+    "invest": "İnvestisiya tələb edir"
+  },
+  "category": {
+    "schedule": "İş qrafiki",
+    "maintenance": "Texniki xidmət",
+    "control": "İdarəetmə",
+    "peak": "Pik güc",
+    "investment": "İnvestisiya"
+  },
+  "rejectReason": {
+    "not_feasible": "Texniki mümkün deyil",
+    "production_risk": "İstehsal riski",
+    "already_done": "Artıq edilib",
+    "other": "Digər"
+  },
+  "mvStatus": {
+    "measuring": "Ölçülür",
+    "verified": "Təsdiqləndi",
+    "below_expected": "Gözləniləndən az"
+  },
+  "rec": {
+    "title": {
+      "rec-comp-schedule": "K-2 kompressorunu növbə bitəndə avtomatik dayandırın",
+      "rec-air-leaks": "Sıxılmış hava xəttindəki sızmaları aradan qaldırın",
+      "rec-chiller-weather": "Çiller-2 rejimini xarici havaya görə tənzimləyin",
+      "rec-chiller-weekend": "Çiller-1-i istirahət günlərində söndürün",
+      "rec-hvac-shifts": "Havalandırmanı növbə qrafikinə bağlayın",
+      "rec-lighting-zones": "Anbar işıqlandırmasını zona və növbə üzrə idarə edin",
+      "rec-ext-sequential": "Ekstruziya xətlərini ardıcıl işə salın",
+      "rec-ext-standby": "Ekstruziya xətlərində gözləmə rejimini tətbiq edin",
+      "rec-comp-vsd": "Kompressora tezlik çeviricisi (VSD) quraşdırın",
+      "rec-boiler-weekend": "Qazanxanada həftəsonu istilik rejimini endirin"
+    },
+    "desc": {
+      "rec-comp-schedule": "K-2 iş günləri gecə 01:00–06:30 arası istehsal olmadan yüksüz işləyir. Kompressorun idarəetməsini istehsal qrafikinə bağlamaq bu yükü aradan qaldırır.",
+      "rec-air-leaks": "Son günlərdə K-1-in gecə baza yükü tədricən artır. Bu, sıxılmış hava sızmasının tipik əlamətidir. Ultrasəs detektoru ilə xətti yoxlayın və birləşmələri təmir edin.",
+      "rec-chiller-weather": "Soyuq günlərdə Çiller-2 yay rejimindəki kimi yüksək yüklə işləyir. Soyuq suyun temperatur təyinatını xarici havaya görə dəyişdirmək yükü azaldır.",
+      "rec-chiller-weekend": "Çiller-1 bazar günləri istehsal olmadan tam gücdə işləyir. Avtomatik söndürmə qrafiki bu itkini aradan qaldırır.",
+      "rec-hvac-shifts": "Sex və anbar havalandırması növbə bitəndən sonra 3 saat işləməyə davam edir. Qrafiki növbəyə uyğunlaşdırmaq kifayətdir.",
+      "rec-lighting-zones": "Anbarın boş zonalarında işıqlar gecə yanılı qalır. Hərəkət sensorları və zona taymerləri bu yükü azaldır.",
+      "rec-ext-sequential": "Səhər 08:00-da dörd ekstruziya xətti eyni anda işə düşür və pik güc yaranır. Xətləri 15 dəqiqə fasilə ilə işə salmaq pik gücü azaldır.",
+      "rec-ext-standby": "Ekstruziya xətləri istehsalsız saatlarda qızdırılmış vəziyyətdə qalır. Gözləmə rejimi silindr temperaturunu aşağı saxlayır və növbədən əvvəl avtomatik qızdırır.",
+      "rec-comp-vsd": "Tezlik çeviricisi kompressorun gücünü hava tələbatına uyğunlaşdırır, yüksüz işləməni və sızma itkisini azaldır.",
+      "rec-boiler-weekend": "Qazanxana şənbə axşamından bazar ertəsinə qədər iş rejimində qalır. Həftəsonu üçün aşağı temperatur rejimi qaz sərfini azaldır."
+    },
+    "risk": {
+      "none": "Keyfiyyətə təsir yoxdur",
+      "morningStart": "Səhər işə salınma 4 dəqiqə uzanır",
+      "processTemp": "Proses suyunun temperaturu nəzarətdə saxlanılmalıdır",
+      "airQuality": "Sexdə hava keyfiyyəti sensorla izlənilməlidir",
+      "startDelay": "Son xəttin işə düşməsi 45 dəqiqə gecikir",
+      "warmup": "Növbədən əvvəl 30 dəqiqəlik qızdırma lazımdır",
+      "installStop": "Quraşdırma zamanı kompressor 1 gün dayanır",
+      "frost": "Boruların donmaması üçün minimal temperatur saxlanılır"
+    }
+  },
+  "measure": {
+    "m-im-servo": "İnjeksiya maşınlarında servo nasos rejimi",
+    "m-led-shop": "Sex işıqlandırmasının LED-ə keçirilməsi",
+    "m-ct-vsd": "Soyutma qülləsi nasoslarına tezlik çeviricisi",
+    "m-office-hvac": "Ofis kondisionerlərinin iş qrafikinə bağlanması"
+  },
+  "anomaly": {
+    "title": {
+      "idle_load": "{equipment} istehsalsız saatlarda {hours} saat işləyib",
+      "baseload_trend": "{equipment} gecə baza yükü {pct}% artıb",
+      "spike": "{equipment} ani yük sıçrayışı",
+      "peak_power": "{count} xətt eyni anda işə salınıb",
+      "weather_mismatch": "{equipment} soyuq havada yüksək yüklə işləyib",
+      "enpi_degradation": "Həftəlik EnPI {pct}% pisləşib"
+    }
+  },
+  "tariff": {
+    "group": {
+      "commercial": "Ticarət və xidmət",
+      "otherNonHousehold": "Digər qeyri-əhali istehlakçıları"
+    }
+  }
+}

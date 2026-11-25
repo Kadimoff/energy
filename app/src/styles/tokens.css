@@ -1,0 +1,136 @@
+/*
+ * Design tokens (spec 6.2-6.7). Every colour exists as hex (--name) and as
+ * RGB channels (--name-rgb) so Tailwind opacity modifiers work. Dark mode:
+ * override the same variables under [data-theme='dark'] (not shipped yet).
+ */
+:root {
+  --bg: #ffffff;
+  --bg-rgb: 255 255 255;
+  --bg-subtle: #faf9fe;
+  --bg-subtle-rgb: 250 249 254;
+  --surface: #ffffff;
+  --surface-rgb: 255 255 255;
+  --surface-raised: #ffffff;
+  --surface-raised-rgb: 255 255 255;
+  --border: #eceaf5;
+  --border-rgb: 236 234 245;
+  --border-strong: #dcd8ec;
+  --border-strong-rgb: 220 216 236;
+  --text: #1b1830;
+  --text-rgb: 27 24 48;
+  --text-2: #57536e;
+  --text-2-rgb: 87 83 110;
+  --text-3: #6e6a86; /* spec #8A86A0 darkened for WCAG AA 4.5:1 */
+  --text-3-rgb: 110 106 134;
+  --violet-50: #f6f3ff;
+  --violet-50-rgb: 246 243 255;
+  --violet-100: #ede8ff;
+  --violet-100-rgb: 237 232 255;
+  --violet-200: #ddd3fe;
+  --violet-200-rgb: 221 211 254;
+  --violet-300: #c4b5fd;
+  --violet-300-rgb: 196 181 253;
+  --violet-400: #a78bfa;
+  --violet-400-rgb: 167 139 250;
+  --violet-500: #8b5cf6;
+  --violet-500-rgb: 139 92 246;
+  --violet-600: #7c3aed;
+  --violet-600-rgb: 124 58 237;
+  --violet-700: #6d28d9;
+  --violet-700-rgb: 109 40 217;
+  --violet-800: #5b21b6;
+  --violet-800-rgb: 91 33 182;
+  --indigo-accent: #6366f1;
+  --indigo-accent-rgb: 99 102 241;
+  --success: #0e9f8e;
+  --success-rgb: 14 159 142;
+  --success-surface: #e8f7f5;
+  --success-surface-rgb: 232 247 245;
+  --warning: #d98e04;
+  --warning-rgb: 217 142 4;
+  --warning-surface: #fdf4e3;
+  --warning-surface-rgb: 253 244 227;
+  --danger: #d64545;
+  --danger-rgb: 214 69 69;
+  --danger-surface: #fcecec;
+  --danger-surface-rgb: 252 236 236;
+  --info: #4f7cf0;
+  --info-rgb: 79 124 240;
+  --info-surface: #eef3fe;
+  --info-surface-rgb: 238 243 254;
+  --chart-1: #7c3aed;
+  --chart-1-rgb: 124 58 237;
+  --chart-2: #6366f1;
+  --chart-2-rgb: 99 102 241;
+  --chart-3: #0ea5e9;
+  --chart-3-rgb: 14 165 233;
+  --chart-4: #14b8a6;
+  --chart-4-rgb: 20 184 166;
+  --chart-5: #f59e0b;
+  --chart-5-rgb: 245 158 11;
+  --chart-6: #94a3b8;
+  --chart-6-rgb: 148 163 184;
+  --success-text: #0b7a6d;
+  --success-text-rgb: 11 122 109;
+  --warning-text: #8f5d00;
+  --warning-text-rgb: 143 93 0;
+  --danger-text: #b23232;
+  --danger-text-rgb: 178 50 50;
+  --info-text: #2f5bd0;
+  --info-text-rgb: 47 91 208;
+
+  /* gradients: AI signature only (spec 6.3) */
+  --ai-gradient: linear-gradient(135deg, #7c3aed 0%, #6366f1 55%, #a78bfa 100%);
+  --page-light-1: radial-gradient(
+    1200px 600px at 85% -10%,
+    rgba(196, 181, 253, 0.35),
+    transparent 60%
+  );
+  --page-light-2: radial-gradient(
+    900px 520px at -5% 105%,
+    rgba(99, 102, 241, 0.08),
+    transparent 60%
+  );
+  --band-gradient: linear-gradient(180deg, rgba(221, 211, 254, 0.6), rgba(221, 211, 254, 0.35));
+
+  /* chart roles */
+  --chart-actual: var(--text);
+  --chart-band: var(--violet-200);
+  --chart-band-edge: var(--violet-400);
+  --chart-waste: var(--warning);
+  --chart-forecast: var(--violet-600);
+  --chart-scenario: var(--success);
+  --chart-grid: var(--border);
+
+  /* shape */
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-card: 14px;
+  --radius-panel: 20px;
+
+  --shadow-sm: 0 1px 2px rgba(27, 24, 48, 0.04);
+  --shadow-md: 0 4px 16px -4px rgba(76, 29, 149, 0.08), 0 1px 3px rgba(27, 24, 48, 0.04);
+  --shadow-lg: 0 16px 40px -12px rgba(76, 29, 149, 0.16);
+
+  /* motion */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --duration: 180ms;
+  --duration-count: 600ms;
+
+  /* layout */
+  --sidebar-w: 240px;
+  --sidebar-w-collapsed: 72px;
+  --topbar-h: 64px;
+  --copilot-w: 420px;
+  --bottom-nav-h: 64px;
+
+  --font-sans:
+    'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system,
+    'Segoe UI', Roboto, sans-serif;
+
+  color-scheme: light;
+}
+
+/* Dark theme hook: intentionally empty in v1 (spec 6.10). */
+[data-theme='dark'] {
+}

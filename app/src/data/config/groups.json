@@ -1,0 +1,15 @@
+[
+  {
+    "id": "compressed_air",
+    "labelKey": "group.compressed_air",
+    "color": "#7C3AED",
+    "energy": "electricity"
+  },
+  { "id": "cooling", "labelKey": "group.cooling", "color": "#6366F1", "energy": "electricity" },
+  { "id": "extrusion", "labelKey": "group.extrusion", "color": "#0EA5E9", "energy": "electricity" },
+  { "id": "injection", "labelKey": "group.injection", "color": "#14B8A6", "energy": "electricity" },
+  { "id": "hvac", "labelKey": "group.hvac", "color": "#F59E0B", "energy": "electricity" },
+  { "id": "lighting", "labelKey": "group.lighting", "color": "#94A3B8", "energy": "electricity" },
+  { "id": "auxiliary", "labelKey": "group.auxiliary", "color": "#CBD5E1", "energy": "electricity" },
+  { "id": "boiler", "labelKey": "group.boiler", "color": "#B45309", "energy": "gas" }
+]

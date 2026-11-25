@@ -1,0 +1,26 @@
+{
+  "bandSigma": 1.5,
+  "robust": { "iterations": 3, "cutoffSigma": 3 },
+  "cvrmseWarnPct": 20,
+  "trainingDays": 365,
+  "minTrainingDays": 60,
+  "detectionWindowDays": 30,
+  "rules": {
+    "idleLoad": { "minExcessKw": 3, "minExcessPctNominal": 0.04, "minHours": 2, "maxGapHours": 1 },
+    "baseloadTrend": {
+      "trendDays": 7,
+      "referenceDays": 21,
+      "minIncreasePct": 10,
+      "minR2": 0.5,
+      "nightStartHour": 1,
+      "nightEndHour": 6
+    },
+    "spike": { "zScore": 3, "minExcessPctNominal": 0.2, "minExcessKw": 10 },
+    "peak": { "minSimultaneousStarts": 3, "surgeZ": 2, "startFromPct": 0.2, "startToPct": 0.6 },
+    "weatherMismatch": { "coldDayMeanC": 12, "minLoadPct": 0.6 },
+    "enpi": { "thresholdPct": 10 }
+  },
+  "severity": { "criticalKwh": 3000, "highKwh": 1000, "mediumKwh": 300 },
+  "forecast": { "wasteWindowDays": 28, "systematicWasteUncertaintyPct": 15 },
+  "staleAfterMinutes": 10
+}

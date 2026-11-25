@@ -1,0 +1,56 @@
+{
+  "id": "plant-sumqayit-1",
+  "name": "Nümunə Polimer Zavodu",
+  "sector": "Plastik məmulatlar istehsalı (ekstruziya və injeksiya)",
+  "location": "Sumqayıt",
+  "areaM2": 18500,
+  "fictional": true,
+  "schedule": {
+    "weekday": { "shifts": 2, "start": 8, "end": 24 },
+    "saturday": { "shifts": 1, "start": 8, "end": 16 },
+    "sunday": { "shifts": 0, "start": 0, "end": 0 }
+  },
+  "shifts": [
+    { "id": "s1", "start": 8, "end": 16 },
+    { "id": "s2", "start": 16, "end": 24 }
+  ],
+  "holidays": [
+    "2025-11-08",
+    "2025-11-09",
+    "2025-12-31",
+    "2026-01-01",
+    "2026-01-02",
+    "2026-01-20",
+    "2026-03-08",
+    "2026-03-20",
+    "2026-03-21",
+    "2026-03-22",
+    "2026-03-23",
+    "2026-03-24",
+    "2026-05-09",
+    "2026-05-27",
+    "2026-05-28",
+    "2026-06-15",
+    "2026-06-26",
+    "2026-11-08",
+    "2026-11-09",
+    "2026-12-31",
+    "2027-01-01",
+    "2027-01-02",
+    "2027-01-20",
+    "2027-03-08"
+  ],
+  "holidaysVerify": true,
+  "workshops": [
+    { "id": "compressor_room", "name": "Kompressor otağı" },
+    { "id": "cooling_station", "name": "Soyutma stansiyası" },
+    { "id": "extrusion_hall", "name": "Ekstruziya sexi" },
+    { "id": "injection_hall", "name": "İnjeksiya sexi" },
+    { "id": "warehouse", "name": "Anbar" },
+    { "id": "boiler_house", "name": "Qazanxana" },
+    { "id": "admin", "name": "İnzibati bina" },
+    { "id": "site", "name": "Ərazi" }
+  ],
+  "peakLimitKw": 1280,
+  "climate": { "cddBaseC": 18, "hddBaseC": 15.5 }
+}

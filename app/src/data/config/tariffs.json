@@ -1,0 +1,29 @@
+{
+  "currency": "AZN",
+  "electricity": {
+    "consumerGroups": [
+      { "id": "commercial", "rateAznPerKwh": 0.11, "labelKey": "tariff.group.commercial" },
+      {
+        "id": "other_non_household",
+        "rateAznPerKwh": 0.1,
+        "labelKey": "tariff.group.otherNonHousehold"
+      }
+    ],
+    "defaultConsumerGroup": "commercial",
+    "fixedFeeAznPerMonth": 3,
+    "fixedFeeEffectiveFrom": "2026-01-01",
+    "source": "Azərbaycan Respublikasının Tarif (qiymət) Şurası, tariff.gov.az",
+    "sourceUrl": "https://tariff.gov.az",
+    "lastChecked": "2026-11-25",
+    "verify": true
+  },
+  "gas": {
+    "rateAznPerM3": 0.3,
+    "fixedFeeAznPerMonth": 0,
+    "source": "Nümunə dəyər (placeholder), rəsmi tarif daxil edilməlidir",
+    "sourceUrl": "https://tariff.gov.az",
+    "lastChecked": null,
+    "verify": true,
+    "placeholder": true
+  }
+}

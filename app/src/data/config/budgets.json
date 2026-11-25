@@ -1,0 +1,11 @@
+{
+  "electricityAznPerMonth": 50000,
+  "gasAznPerMonth": 14000,
+  "targets": {
+    "annualEnergyReductionPct": 8,
+    "annualCo2ReductionPct": 10,
+    "annualCo2TargetT": 3200,
+    "enpiTargetKwhPerT": 360,
+    "baselineYear": "previous_12_months"
+  }
+}

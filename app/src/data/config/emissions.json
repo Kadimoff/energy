@@ -1,0 +1,47 @@
+{
+  "scope1": {
+    "id": "natural_gas",
+    "kgCo2PerKwh": 0.202,
+    "basis": "IPCC 2006 default 56,1 t CO₂/TJ, aşağı yanma istiliyi (NCV)",
+    "source": "IPCC 2006 Guidelines for National GHG Inventories, Vol. 2, Ch. 2, Table 2.2",
+    "sourceUrl": "https://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",
+    "date": "2006",
+    "lastChecked": "2026-11-25",
+    "verify": false
+  },
+  "scope2": {
+    "id": "grid_electricity_az",
+    "method": "location",
+    "kgCo2PerKwh": 0.41,
+    "basis": "20 448 MVt·saat üçün 8 311 t CO₂e (~0,41 t/MVt·saat)",
+    "source": "Azərenerji ASC, bərpa olunan enerji layihə sənədi",
+    "sourceUrl": null,
+    "date": "2026",
+    "lastChecked": "2026-11-25",
+    "verify": true
+  },
+  "gasKwhPerM3": {
+    "value": 10,
+    "source": "Təbii qazın orta aşağı yanma istiliyi (~36 MJ/m³), yoxlanılmalı",
+    "lastChecked": "2026-11-25",
+    "verify": true
+  },
+  "cbam": {
+    "euEtsPriceEurPerT": 80,
+    "eurToAzn": 1.98,
+    "freeThresholdTonnesPerYear": 50,
+    "coveredGroups": [
+      "cement",
+      "iron_steel",
+      "aluminium",
+      "fertilisers",
+      "electricity",
+      "hydrogen"
+    ],
+    "definitivePhaseFrom": "2026-01-01",
+    "firstDeclarationDue": "2027-09-30",
+    "source": "Regulation (EU) 2023/956 (CBAM)",
+    "lastChecked": "2026-11-25",
+    "verify": true
+  }
+}
