@@ -102,9 +102,11 @@ export function runScenario(
         newHours++;
       } else intensity[i] = 0;
     }
-    const doneHours = Math.max(0, Math.min(day.endIndex, now) - day.startIndex);
-    const doneShare = doneHours > 0 ? day.tons * (doneHours / 24) : 0;
-    tonsScenario += doneShare + rate * pf * newHours;
+    // production already done today: planned rate × production hours before now
+    let doneProdHours = 0;
+    for (let i = day.startIndex; i < Math.min(day.endIndex, now); i++)
+      doneProdHours += ds.context.production[i];
+    tonsScenario += rate * doneProdHours + rate * pf * newHours;
   }
   const inputs: HourlyInputs = { ...core.inputs, production, intensity, temperature };
   const baseRed = reductionAt(engine, recStates, ds.timeline.nowMs);

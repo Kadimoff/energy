@@ -36,11 +36,14 @@ app/src/
   components/
     ui/           shadcn-style Radix primitives (button, card, dialog, sheet, ...)
     charts/       ActualVsOptimalChart (signature "optimal band"), Sparkline
+      analytics/  ChartFrame + fan (P10 to P90), before/after, peak profile,
+                  scope bars with intensity, waterfall, cumulative savings, M&V baseline
     ai/           AiBadge, ConfidenceMeter, WhyPanel, CopilotPanel (+ copilot/ slot)
     kpi/          KpiCard
     layout/       AppShell, Sidebar, Topbar, BottomNav, PageHeader
     common/       EmptyState, ErrorState, StaleDataBanner, SourceTooltip, skeletons
   domain/         pure calculation functions + Vitest tests (no React)
+    analytics/    page view models for forecast, peak planner, carbon/CBAM, M&V
   data/
     config/       all tariffs, factors, budgets, targets, thresholds (JSON)
     mock/         deterministic generator, injected waste scenarios

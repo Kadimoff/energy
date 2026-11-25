@@ -40,6 +40,9 @@ const ACRONYMS = new Set([
   'E-1',
   'LED',
   'OK',
+  'RMSE',
+  'CDD',
+  'HDD',
 ]);
 
 describe('i18n resources', () => {
